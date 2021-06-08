@@ -30,5 +30,7 @@ namespace Bookazon.Data
         [Required]
         public Condition TypeOfCondition { get; set; }
 
+        public virtual ICollection<Authorship> Authors { get; set; } = new List<Authorship>();
+
     }
 }
