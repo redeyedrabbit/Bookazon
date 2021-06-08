@@ -29,6 +29,7 @@ namespace Bookazon.Data
         public DbSet<Author> Authors { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Publisher> Publishers { get; set; }
+        public DbSet<Authorship> Authorships { get; set; }
         
         public static ApplicationDbContext Create()
         {
