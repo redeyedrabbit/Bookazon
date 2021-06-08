@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace Bookazon.Models.Publisher
 {
-    class PublisherUpdate
+    public class PublisherUpdate
     {
+        public int PublisherId { get; set; }
+        public string Name { get; set; }
     }
 }
