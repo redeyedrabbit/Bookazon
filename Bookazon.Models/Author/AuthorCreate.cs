@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bookazon.Models
+namespace Bookazon.Models.Author
 {
     public class AuthorCreate
     {
