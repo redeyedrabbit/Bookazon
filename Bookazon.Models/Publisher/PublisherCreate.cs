@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Bookazon.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -17,5 +18,6 @@ namespace Bookazon.Models.Publisher
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
         [MaxLength(30, ErrorMessage = "There are too many characters in this field.")]
         public string Name { get; set; }
+
     }
 }

@@ -18,5 +18,9 @@ namespace Bookazon.Data
         [Required]
         public string LastName { get; set; }
 
+
+        public virtual ICollection<Authorship> BooksAuthored { get; set; }
+
+
     }
 }
