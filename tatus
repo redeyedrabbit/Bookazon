@@ -1,0 +1,132 @@
+[33mcommit 70320cc816012aa9ec52183b0f4392b8945d95ec[m[33m ([m[1;36mHEAD -> [m[1;32mrachel-6[m[33m)[m
+Author: Rachel Bellwood <rbellwood@gmail.com>
+Date:   Tue Jun 8 12:43:33 2021 -0400
+
+    rachel/6/publisher-class
+
+[1mdiff --git a/Bookazon.Data/Publisher.cs b/Bookazon.Data/Publisher.cs[m
+[1mnew file mode 100644[m
+[1mindex 0000000..630e7c2[m
+[1m--- /dev/null[m
+[1m+++ b/Bookazon.Data/Publisher.cs[m
+[36m@@ -0,0 +1,19 @@[m
+[32m+[m[32m﻿using System;[m
+[32m+[m[32musing System.Collections.Generic;[m
+[32m+[m[32musing System.ComponentModel.DataAnnotations;[m
+[32m+[m[32musing System.Linq;[m
+[32m+[m[32musing System.Text;[m
+[32m+[m[32musing System.Threading.Tasks;[m
+[32m+[m
+[32m+[m[32mnamespace Bookazon.Data[m
+[32m+[m[32m{[m
+[32m+[m[32m    public class Publisher[m
+[32m+[m[32m    {[m
+[32m+[m[32m        [Key][m
+[32m+[m[32m        public int PublisherId { get; set; }[m
+[32m+[m
+[32m+[m[32m        [Required][m
+[32m+[m[32m        public string Name { get; set; }[m
+[32m+[m
+[32m+[m[32m    }[m
+[32m+[m[32m}[m
+
+[33mcommit 0b285df6ad2a1cf15a6590d9371c3523733c6c3e[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Rachel Bellwood <rbellwood@gmail.com>
+Date:   Mon Jun 7 16:11:39 2021 -0400
+
+    Add project files.
+
+[1mdiff --git a/Bookazon.Data/App.config b/Bookazon.Data/App.config[m
+[1mnew file mode 100644[m
+[1mindex 0000000..ce4e3d0[m
+[1m--- /dev/null[m
+[1m+++ b/Bookazon.Data/App.config[m
+[36m@@ -0,0 +1,25 @@[m
+[32m+[m[32m﻿<?xml version="1.0" encoding="utf-8"?>[m
+[32m+[m[32m<configuration>[m
+[32m+[m[32m  <configSections>[m
+[32m+[m[32m    <!-- For more information on Entity Framework configuration, visit http://go.microsoft.com/fwlink/?LinkID=237468 -->[m
+[32m+[m[32m    <section name="entityFramework" type="System.Data.Entity.Internal.ConfigFile.EntityFrameworkSection, EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" requirePermission="false" />[m
+[32m+[m[32m  </configSections>[m
+[32m+[m[32m  <entityFramework>[m
+[32m+[m[32m    <defaultConnectionFactory type="System.Data.Entity.Infrastructure.LocalDbConnectionFactory, EntityFramework">[m
+[32m+[m[32m      <parameters>[m
+[32m+[m[32m        <parameter value="v13.0" />[m
+[32m+[m[32m      </parameters>[m
+[32m+[m[32m    </defaultConnectionFactory>[m
+[32m+[m[32m    <providers>[m
+[32m+[m[32m      <provider invariantName="System.Data.SqlClient" type="System.Data.Entity.SqlServer.SqlProviderServices, EntityFramework.SqlServer" />[m
+[32m+[m[32m    </providers>[m
+[32m+[m[32m  </entityFramework>[m
+[32m+[m[32m  <runtime>[m
+[32m+[m[32m    <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">[m
+[32m+[m[32m      <dependentAssembly>[m
+[32m+[m[32m        <assemblyIdentity name="Microsoft.Owin" publicKeyToken="31bf3856ad364e35" culture="neutral" />[m
+[32m+[m[32m        <bindingRedirect oldVersion="0.0.0.0-3.0.1.0" newVersion="3.0.1.0" />[m
+[32m+[m[32m      </dependentAssembly>[m
+[32m+[m[32m    </assemblyBinding>[m
+[32m+[m[32m  </runtime>[m
+[32m+[m[32m</configuration>[m
+\ No newline at end of file[m
+[1mdiff --git a/Bookazon.Data/Bookazon.Data.csproj b/Bookazon.Data/Bookazon.Data.csproj[m
+[1mnew file mode 100644[m
+[1mindex 0000000..cce72a2[m
+[1m--- /dev/null[m
+[1m+++ b/Bookazon.Data/Bookazon.Data.csproj[m
+[36m@@ -0,0 +1,95 @@[m
+[32m+[m[32m﻿<?xml version="1.0" encoding="utf-8"?>[m
+[32m+[m[32m<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">[m
+[32m+[m[32m  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />[m
+[32m+[m[32m  <PropertyGroup>[m
+[32m+[m[32m    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>[m
+[32m+[m[32m    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>[m
+[32m+[m[32m    <ProjectGuid>{E03DFBD2-9E04-4E14-93FD-99721B14A7E3}</ProjectGuid>[m
+[32m+[m[32m    <OutputType>Library</OutputType>[m
+[32m+[m[32m    <AppDesignerFolder>Properties</AppDesignerFolder>[m
+[32m+[m[32m    <RootNamespace>Bookazon.Data</RootNamespace>[m
+[32m+[m[32m    <AssemblyName>Bookazon.Data</AssemblyName>[m
+[32m+[m[32m    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>[m
+[32m+[m[32m    <FileAlignment>512</FileAlignment>[m
+[32m+[m[32m    <Deterministic>true</Deterministic>[m
+[32m+[m[32m  </PropertyGroup>[m
+[32m+[m[32m  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">[m
+[32m+[m[32m    <DebugSymbols>true</DebugSymbols>[m
+[32m+[m[32m    <DebugType>full</DebugType>[m
+[32m+[m[32m    <Optimize>false</Optimize>[m
+[32m+[m[32m    <OutputPath>bin\Debug\</OutputPath>[m
+[32m+[m[32m    <DefineConstants>DEBUG;TRACE</DefineConstants>[m
+[32m+[m[32m    <ErrorReport>prompt</ErrorReport>[m
+[32m+[m[32m    <WarningLevel>4</WarningLevel>[m
+[32m+[m[32m  </PropertyGroup>[m
+[32m+[m[32m  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">[m
+[32m+[m[32m    <DebugType>pdbonly</DebugType>[m
+[32m+[m[32m    <Optimize>true</Optimize>[m
+[32m+[m[32m    <OutputPath>bin\Release\</OutputPath>[m
+[32m+[m[32m    <DefineConstants>TRACE</DefineConstants>[m
+[32m+[m[32m    <ErrorReport>prompt</ErrorReport>[m
+[32m+[m[32m    <WarningLevel>4</WarningLevel>[m
+[32m+[m[32m  </PropertyGroup>[m
+[32m+[m[32m  <ItemGroup>[m
+[32m+[m[32m    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">[m
+[32m+[m[32m      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>[m
+[32m+[m[32m    </Reference>[m
+[32m+[m[32m    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">[m
+[32m+[m[32m      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>[m
+[32m+[m[32m    </Reference>[m
+[32m+[m[32m    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">[m
+[32m+[m[32m      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>[m
+[32m+[m[32m    </Reference>[m
+[32m+[m[32m    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">[m
+[32m+[m[32m      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>[m
+[32m+[m[32m    </Reference>[m
+[32m+[m[32m    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">[m
+[32m+[m[32m      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>[m
+[32m+[m[32m    </Reference>[m
+[32m+[m[32m    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">[m
+[32m+[m[32m      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>[m
+[32m+[m[32m    </Reference>[m
+[32m+[m[32m    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">[m
+[32m+[m[32m      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>[m
+[32m+[m[32m    </Reference>[m
+[32m+[m[32m    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">[m
+[32m+[m[32m      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft
