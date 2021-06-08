@@ -54,15 +54,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AuthorCreate.cs" />
-    <Compile Include="AuthorDetail.cs" />
-    <Compile Include="AuthorEdit.cs" />
-    <Compile Include="AuthorListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Publisher\PublisherCreate.cs" />
+    <Compile Include="Publisher\PublisherDetail.cs" />
+    <Compile Include="Publisher\PublisherListItem.cs" />
+    <Compile Include="Publisher\PublisherUpdate.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
