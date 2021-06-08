@@ -87,7 +87,6 @@
     <Compile Include="Author.cs" />
     <Compile Include="Authorship.cs" />
     <Compile Include="IdentityModels.cs" />
-    <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
