@@ -10,7 +10,7 @@ namespace Bookazon.Data
     public enum FormatType { Book, CD, Ebook}
     public enum Condition { New, Used}
     public enum Genre { Mystery, Thriller, Horror, Fantasy, Childrens, Romance, Nonfiction}
-    class Product    
+    public class Product    
     {
         [Key] 
         public int Id { get; set; }
