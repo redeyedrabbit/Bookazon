@@ -208,6 +208,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuthorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -312,6 +313,10 @@
     <ProjectReference Include="..\Bookazon.Data\Bookazon.Data.csproj">
       <Project>{e03dfbd2-9e04-4e14-93fd-99721b14a7e3}</Project>
       <Name>Bookazon.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bookazon.Models\Bookazon.Models.csproj">
+      <Project>{861F09BC-87DB-4734-9818-17C2566B9F5D}</Project>
+      <Name>Bookazon.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\Bookazon.Services\Bookazon.Services.csproj">
       <Project>{dae14add-c29d-4fb8-8aae-8de5b1847175}</Project>
