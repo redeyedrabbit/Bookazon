@@ -9,14 +9,20 @@ namespace Bookazon.Services
     public class PublisherService
     {
         // Create New Publisher 
-        public bool CreatePublisher(PublisherCreate model)
-        {
-            var entity = new PublisherService()
-            {
-                PublisherId = _publisherId,
-                Name = model.Name
-            };
-        }
+        // User is unique identifier 
+        //public bool CreatePublisher(PublisherCreate model, int PublisherId)
+        //{
+        //    var entity = new PublisherService()
+        //    {
+        //        PublisherId = _publisherId,
+        //        Name = model.Name
+        //    };
+        //    using (var ctx = new ApplicationDbContext())
+        //    {
+        //        ctx.Publisher.Add(entity);
+        //        return ctx.SaveChanged() == 1;
+        //    }
+        //}
         // Update Existing Publisher
         //public bool UpdatePublisher(PublisherUpdate model)
         //{
