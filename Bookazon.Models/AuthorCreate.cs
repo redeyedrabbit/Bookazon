@@ -5,25 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Bookazon.Data
+namespace Bookazon.Models
 {
-    public class Author
+    public class AuthorCreate
     {
-        [Key]
-        public int AuthorId { get; set; }
-
-        [Required]
-        public Guid ManagerId { get; set; }
-
         [Required]
         public string FirstName { get; set; }
 
         [Required]
         public string LastName { get; set; }
-
-
-        public virtual IEnumerable<Authorship> BooksAuthored { get; set; }
-
-
     }
 }
