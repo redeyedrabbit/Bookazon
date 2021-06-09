@@ -1,5 +1,6 @@
 ﻿using Bookazon.Data;
 using Bookazon.Models;
+using Bookazon.Models.Author;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -113,6 +114,35 @@ namespace Bookazon.Services
             }
         }
 
+        public bool UpdateAuthor (AuthorEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Authors
+                    .Single(e => e.AuthorId == model.AuthorId);
 
+                entity.FirstName = model.FirstName;
+                entity.LastName = model.LastName;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
+        public bool DeleteAuthor(int authorId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Authors
+                    .Single(e => e.AuthorId == authorId);
+
+                ctx.Authors.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }
