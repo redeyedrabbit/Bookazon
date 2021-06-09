@@ -22,7 +22,7 @@ namespace Bookazon.Data
         public string LastName { get; set; }
 
 
-        public virtual ICollection<Authorship> BooksAuthored { get; set; }
+        public virtual IEnumerable<Authorship> BooksAuthored { get; set; }
 
 
     }
