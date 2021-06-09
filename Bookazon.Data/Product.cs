@@ -21,6 +21,12 @@ namespace Bookazon.Data
         [Required]
         public FormatType TypeOfFormat { get; set; }
         public Genre TypeofGenre { get; set; }
+
+        // Foreign Key
+        public int PublisherId { get; set; }
+        // do we need this? - Rachel
+        //public virtual Publisher Publisher { get; set; }
+
         [Required]
         public int PublisherId { get; set; }
         public int PublishYear { get; set; }
