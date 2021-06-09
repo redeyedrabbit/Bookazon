@@ -15,6 +15,8 @@ namespace Bookazon.Data
         [Key] 
         public int Id { get; set; }
         [Required]
+        public Guid ManagerId { get; set; }
+        [Required]
         public string Title { get; set; }
         [Required]
         public string Description { get; set; }
@@ -23,7 +25,9 @@ namespace Bookazon.Data
         public Genre TypeofGenre { get; set; }
 
         // Foreign Key
-        public int PublisherId { get; set; }
+        //line below commented out by Tad to remove error for working.
+        //public int PublisherId { get; set; }
+        
         // do we need this? - Rachel
         //public virtual Publisher Publisher { get; set; }
 

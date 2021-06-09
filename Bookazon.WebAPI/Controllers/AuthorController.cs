@@ -13,6 +13,7 @@ namespace Bookazon.WebAPI.Controllers
 
     public class AuthorController : ApiController
     {
+        [Authorize]
         public IHttpActionResult Get()
         {
             AuthorService authorService = CreateAuthorService();
