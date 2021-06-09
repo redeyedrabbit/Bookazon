@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,13 +23,11 @@ namespace Bookazon.Data
         public FormatType TypeOfFormat { get; set; }
         public Genre TypeofGenre { get; set; }
 
-        // Foreign Key
+        [ForeignKey]
         public int PublisherId { get; set; }
         // do we need this? - Rachel
         //public virtual Publisher Publisher { get; set; }
-
-        [Required]
-        public int PublisherId { get; set; }
+                        
         public int PublishYear { get; set; }
         [Required]
         public decimal Price { get; set; }
