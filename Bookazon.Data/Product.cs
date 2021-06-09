@@ -24,6 +24,7 @@ namespace Bookazon.Data
         [Required]
         public FormatType TypeOfFormat { get; set; }
         public Genre TypeofGenre { get; set; }
+        [Required]
         [ForeignKey]
         public int PublisherId { get; set; }
         public int PublishYear { get; set; }
