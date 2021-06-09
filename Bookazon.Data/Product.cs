@@ -20,17 +20,15 @@ namespace Bookazon.Data
         public string Description { get; set; }
         [Required]
         public FormatType TypeOfFormat { get; set; }
-        [Required]
         public Genre TypeofGenre { get; set; }
-        public int PublisherId { get; set; }
         [Required]
-        public DateTime PublishYear { get; set; }
+        public int PublisherId { get; set; }
+        public int PublishYear { get; set; }
         [Required]
         public decimal Price { get; set; }
-        [Required]
         public Condition TypeOfCondition { get; set; }
 
-        public virtual ICollection<Authorship> Authors { get; set; } = new List<Authorship>();
+        public virtual IEnumerable<Authorship> Authors { get; set; } 
 
     }
 }
