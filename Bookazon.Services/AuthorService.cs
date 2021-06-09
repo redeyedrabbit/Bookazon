@@ -11,11 +11,11 @@ namespace Bookazon.Services
 {
     public class AuthorService
     {
-        private readonly Guid _userId;
+        private readonly Guid _managerId;
 
-        public AuthorService(Guid userId)
+        public AuthorService(Guid managerId)
         {
-            _userId = userId;
+            _managerId = managerId;
         }
 
         public bool CreateAuthor(AuthorCreate model)
@@ -23,6 +23,7 @@ namespace Bookazon.Services
             var entity =
                 new Author()
                 {
+                    ManagerId = _managerId,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                 };
@@ -114,6 +115,24 @@ namespace Bookazon.Services
             }
         }
 
+        public AuthorDetail GetAuthorById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Authors
+                    .Single(e => e.AuthorId == id);
+                return
+                    new AuthorDetail
+                    {
+                        AuthorId = entity.AuthorId,
+                        FirstName = entity.FirstName,
+                        LastName = entity.LastName
+                    };
+            }
+        }
+
         public bool UpdateAuthor (AuthorEdit model)
         {
             using (var ctx = new ApplicationDbContext())
@@ -121,7 +140,7 @@ namespace Bookazon.Services
                 var entity =
                     ctx
                     .Authors
-                    .Single(e => e.AuthorId == model.AuthorId);
+                    .Single(e => e.AuthorId == model.AuthorId && e.ManagerId == _managerId);
 
                 entity.FirstName = model.FirstName;
                 entity.LastName = model.LastName;
@@ -137,7 +156,7 @@ namespace Bookazon.Services
                 var entity =
                     ctx
                     .Authors
-                    .Single(e => e.AuthorId == authorId);
+                    .Single(e => e.AuthorId == authorId && e.ManagerId == _managerId);
 
                 ctx.Authors.Remove(entity);
 

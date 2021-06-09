@@ -13,6 +13,9 @@ namespace Bookazon.Data
         public int AuthorId { get; set; }
 
         [Required]
+        public Guid ManagerId { get; set; }
+
+        [Required]
         public string FirstName { get; set; }
 
         [Required]

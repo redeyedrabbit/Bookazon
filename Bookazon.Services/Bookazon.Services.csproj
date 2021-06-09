@@ -63,5 +63,15 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Bookazon.Data\Bookazon.Data.csproj">
+      <Project>{E03DFBD2-9E04-4E14-93FD-99721B14A7E3}</Project>
+      <Name>Bookazon.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bookazon.Models\Bookazon.Models.csproj">
+      <Project>{861F09BC-87DB-4734-9818-17C2566B9F5D}</Project>
+      <Name>Bookazon.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

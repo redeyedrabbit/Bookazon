@@ -38,8 +38,6 @@ namespace Bookazon.Data
             return new ApplicationDbContext();
         }
 
-        public DbSet<Author> Authors { get; set; }
-
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder
