@@ -29,6 +29,7 @@ namespace Bookazon.Data
         public Condition TypeOfCondition { get; set; }
 
         public virtual IEnumerable<Authorship> Authors { get; set; } 
+        public virtual IEnumerable<Publisher> Publishers { get; set; }
 
     }
 }

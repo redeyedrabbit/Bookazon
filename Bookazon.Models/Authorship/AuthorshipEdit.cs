@@ -8,5 +8,8 @@ namespace Bookazon.Models.Authorship
 {
     class AuthorshipEdit
     {
+        public int Id { get; set; }
+        public int AuthorId { get; set; }
+        public int ProductId { get; set; }
     }
 }

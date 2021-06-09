@@ -11,7 +11,7 @@ namespace Bookazon.Models.Product
     {
         public int ProductId { get; set; }
         public string Title { get; set; }
-        public virtual IEnumerable<Authorship> Authors { get; set; }
+        public virtual IEnumerable<Bookazon.Data.Authorship> Authors { get; set; }
         public Genre TypeOfGenre { get; set; }
     }
 }

@@ -11,13 +11,13 @@ namespace Bookazon.Data
     {
         public int Id { get; set; }
 
-        [ForeignKey(nameof(Author))]
+        [ForeignKey(nameof(Authors))]
         public int AuthorId { get; set; }
 
-        [ForeignKey(nameof(Product))]
+        [ForeignKey(nameof(Products))]
         public int ProductId { get; set; }
 
-        public virtual Product Product { get; set; }
-        public virtual Author Author { get; set; }
+        public virtual IEnumerable<Product> Products { get; set; }
+        public virtual IEnumerable<Author> Authors { get; set; }
     }
 }
