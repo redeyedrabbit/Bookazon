@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,13 +24,8 @@ namespace Bookazon.Data
         [Required]
         public FormatType TypeOfFormat { get; set; }
         public Genre TypeofGenre { get; set; }
-        // Foreign Key
-        //line below commented out by Tad to remove error for working.
-        //public int PublisherId { get; set; }
-        
-        // do we need this? - Rachel
-        //public virtual Publisher Publisher { get; set; }
         [Required]
+        [ForeignKey]
         public int PublisherId { get; set; }
         public int PublishYear { get; set; }
         [Required]
