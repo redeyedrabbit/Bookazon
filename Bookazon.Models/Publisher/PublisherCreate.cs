@@ -11,9 +11,6 @@ namespace Bookazon.Models.Publisher
 {
     public class PublisherCreate
     {
-        [ForeignKey(nameof(Publisher))]
-        public int PublisherId { get; set; }
-
         [Required]
         [MinLength(2, ErrorMessage = "Please enter at least 2 characters.")]
         [MaxLength(30, ErrorMessage = "There are too many characters in this field.")]

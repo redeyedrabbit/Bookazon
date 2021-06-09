@@ -12,6 +12,9 @@ namespace Bookazon.Data
         public int PublisherId { get; set; }
 
         [Required]
+        public Guid ManagerId { get; set; }
+
+        [Required]
         public string Name { get; set; }
 
         public virtual List<Product> Products { get; set; }
