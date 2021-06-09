@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Bookazon.Models.Product
 {
-    class ProductDetail
+    public class ProductDetail
     {
         public int Id { get; set; }
         public string Title { get; set; }

@@ -20,11 +20,11 @@ namespace Bookazon.Models.Product
         public string Description { get; set; }
         [Required]
         public FormatType TypeOfFormat { get; set; }
-        public Genre? TypeofGenre { get; set; }
+        public Genre TypeofGenre { get; set; }
         [Required]
         public int PublisherId { get; set; }        
-        public int? PublishYear { get; set; }
-        public decimal? Price { get; set; }
-        public Condition? TypeOfCondition { get; set; }
+        public int PublishYear { get; set; }
+        public decimal Price { get; set; }
+        public Condition TypeOfCondition { get; set; }
     }
 }
