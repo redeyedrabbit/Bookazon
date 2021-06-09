@@ -58,6 +58,20 @@
     <Compile Include="AuthorDetail.cs" />
     <Compile Include="AuthorEdit.cs" />
     <Compile Include="AuthorListItem.cs" />
+    <Compile Include="Authorship\AuthorshipCreate.cs" />
+    <Compile Include="Authorship\AuthorshipDetail.cs" />
+    <Compile Include="Authorship\AuthorshipEdit.cs" />
+    <Compile Include="Authorship\AuthorshipListItem.cs" />
+    <Compile Include="Author\AuthorCreate.cs" />
+    <Compile Include="Author\AuthorDetail.cs" />
+    <Compile Include="Author\AuthorEdit.cs" />
+    <Compile Include="Author\AuthorListItem.cs" />
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
+    <Compile Include="obj\Release\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
+    <Compile Include="Product\ProductCreate.cs" />
+    <Compile Include="Product\ProductDetail.cs" />
+    <Compile Include="Product\ProductEdit.cs" />
+    <Compile Include="Product\ProductListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Publisher\PublisherCreate.cs" />
     <Compile Include="Publisher\PublisherDetail.cs" />
@@ -66,8 +80,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="obj\Release\Bookazon.Models.csprojAssemblyReference.cache" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Bookazon.Data\Bookazon.Data.csproj">
+      <Project>{E03DFBD2-9E04-4E14-93FD-99721B14A7E3}</Project>
+      <Name>Bookazon.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
+    <Folder Include="bin\Release\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
