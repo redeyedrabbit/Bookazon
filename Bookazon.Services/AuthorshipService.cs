@@ -1,4 +1,5 @@
 ﻿using Bookazon.Data;
+using Bookazon.Models.Authorship;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Bookazon.Services
 {
-    class AuthorshipService
+    public class AuthorshipService
     {
         private readonly Guid _managerId;
 
@@ -52,5 +53,24 @@ namespace Bookazon.Services
             }
         }
 
+        public IEnumerable<AuthorshipListItem> GetAuthorships()
+        {
+            using(var ctx = new ApplicationDbContext()) 
+            {
+                var query =
+                    ctx
+                    .Authorships
+                    .Select(
+                        e =>
+                        new AuthorshipListItem
+                        {
+                            Id = e.Id,
+                            AuthorId = e.AuthorId,
+                            ProductId = e.ProductId
+                        }
+                        );
+                return query.ToArray();
+            }
+        }
     }
 }

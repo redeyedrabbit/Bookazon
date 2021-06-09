@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bookazon.Models.Authorship
 {
-    class AuthorshipCreate
+    public class AuthorshipCreate
     {
                   
         public int AuthorId { get; set; }                
