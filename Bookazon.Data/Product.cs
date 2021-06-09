@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace Bookazon.Data
 {
-    public enum FormatType { Book, CD, Ebook}
-    public enum Condition { New, Used}
-    public enum Genre { Mystery, Thriller, Horror, Fantasy, Childrens, Romance, Nonfiction}
-    public class Product    
+    public enum FormatType { Hardcover, Paperback, Audiobook, Ebook }
+    public enum Condition { New, Used }
+    public enum Genre { Mystery, Thriller, Horror, Fantasy, Childrens, Romance, Nonfiction, History }
+    public class Product
     {
-        [Key] 
+        [Key]
         public int Id { get; set; }
         [Required]
         public Guid ManagerId { get; set; }
@@ -23,7 +23,6 @@ namespace Bookazon.Data
         [Required]
         public FormatType TypeOfFormat { get; set; }
         public Genre TypeofGenre { get; set; }
-
         // Foreign Key
         //line below commented out by Tad to remove error for working.
         //public int PublisherId { get; set; }
@@ -38,7 +37,7 @@ namespace Bookazon.Data
         public decimal Price { get; set; }
         public Condition TypeOfCondition { get; set; }
 
-        public virtual IEnumerable<Authorship> Authors { get; set; } 
+        public virtual IEnumerable<Authorship> Authors { get; set; }
         public virtual IEnumerable<Publisher> Publishers { get; set; }
 
     }
