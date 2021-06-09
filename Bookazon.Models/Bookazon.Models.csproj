@@ -78,10 +78,9 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Bookazon.Data\Bookazon.Data.csproj">
-      <Project>{E03DFBD2-9E04-4E14-93FD-99721B14A7E3}</Project>
+      <Project>{e03dfbd2-9e04-4e14-93fd-99721b14a7e3}</Project>
       <Name>Bookazon.Data</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
