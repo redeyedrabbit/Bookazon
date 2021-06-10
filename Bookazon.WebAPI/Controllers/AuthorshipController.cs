@@ -10,6 +10,7 @@ using Bookazon.Models.Authorship;
 
 namespace Bookazon.WebAPI.Controllers
 {
+    [Authorize]
     public class AuthorshipController : ApiController
     {
         public IHttpActionResult GetAllAuthorships()
@@ -19,11 +20,11 @@ namespace Bookazon.WebAPI.Controllers
             return Ok(authorships);
         }
 
-        public IHttpActionResult DeleteAuthorships(int productId, int authorId)
+        public IHttpActionResult DeleteAuthorships(int authorshipID)
         {
             
             var service = CreateAuthorshipService();
-            if (!service.DeleteAuthorship(productId, authorId))
+            if (!service.DeleteAuthorship(authorshipID))
                 return InternalServerError();
 
             return Ok("Authorship deleted");
