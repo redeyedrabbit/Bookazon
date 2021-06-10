@@ -52,7 +52,7 @@ namespace Bookazon.Services
                         {
                             ProductId = e.Id,
                             Title = e.Title,
-                            Authors = e.Authors,
+                            Authors = e.Authors.ToArray(),
                             TypeOfGenre = e.TypeofGenre
                         }
                         );
