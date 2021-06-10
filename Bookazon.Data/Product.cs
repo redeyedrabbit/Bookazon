@@ -10,7 +10,7 @@ namespace Bookazon.Data
 {
     public enum FormatType { Hardcover, Paperback, Audiobook, Ebook }
     public enum Condition { New, Used }
-    public enum Genre { Mystery, Thriller, Horror, Fantasy, Childrens, Romance, Nonfiction, History }
+    public enum Genre { Mystery, Thriller, Horror, Fantasy, Childrens, Romance, Nonfiction, History, SciFi }
     public class Product
     {
         [Key]
@@ -31,7 +31,7 @@ namespace Bookazon.Data
         public decimal Price { get; set; }
         public Condition TypeOfCondition { get; set; }
 
-        public virtual IEnumerable<Authorship> Authors { get; set; }
+        public virtual List<Authorship> Authors { get; set; }
         public virtual IEnumerable<Publisher> Publishers { get; set; }
 
     }
