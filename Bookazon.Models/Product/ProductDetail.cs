@@ -14,7 +14,7 @@ namespace Bookazon.Models.Product
         public string Title { get; set; }
         public string Description { get; set; }
         [Display(Name = "Authors")]
-        public virtual IEnumerable<Bookazon.Data.Authorship> Authors { get; set; }
+        public /*virtual*/ IEnumerable<Bookazon.Data.Authorship> Authors { get; set; }
         public FormatType TypeOfFormat { get; set; }
         public Genre TypeofGenre { get; set; }
         public int PublisherId { get; set; }
