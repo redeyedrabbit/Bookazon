@@ -97,11 +97,10 @@ namespace Bookazon.Services
                         Id = entity.Id,
                         Title = entity.Title,
                         Description = entity.Description,
-                        Authors = entity.Authors,
+                        Authors = entity.Authors.Select(a => a.AuthorId).ToList(),
                         TypeOfFormat = entity.TypeOfFormat,
                         TypeofGenre = entity.TypeofGenre,
                         PublisherId = entity.PublisherId,
-                        Publishers = entity.Publishers,
                         PublishYear = entity.PublishYear,
                         Price = entity.Price,
                         TypeOfCondition = entity.TypeOfCondition
