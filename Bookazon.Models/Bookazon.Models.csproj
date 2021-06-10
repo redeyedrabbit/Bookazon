@@ -62,8 +62,6 @@
     <Compile Include="Author\AuthorDetail.cs" />
     <Compile Include="Author\AuthorEdit.cs" />
     <Compile Include="Author\AuthorListItem.cs" />
-    <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
-    <Compile Include="obj\Release\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
     <Compile Include="Product\ProductCreate.cs" />
     <Compile Include="Product\ProductDetail.cs" />
     <Compile Include="Product\ProductEdit.cs" />
@@ -76,18 +74,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="obj\Release\Bookazon.Models.csprojAssemblyReference.cache" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Bookazon.Data\Bookazon.Data.csproj">
-      <Project>{E03DFBD2-9E04-4E14-93FD-99721B14A7E3}</Project>
+      <Project>{e03dfbd2-9e04-4e14-93fd-99721b14a7e3}</Project>
       <Name>Bookazon.Data</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="bin\Debug\" />
-    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

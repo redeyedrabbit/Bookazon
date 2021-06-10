@@ -21,7 +21,7 @@ namespace Bookazon.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                if (ctx.Authorships.Count(e => e.AuthorId == authorId && e.ProductId == productId) != 0) 
+                if (ctx.Authorships.Count(e => e.AuthorId == authorId && e.ProductId == productId && e.ManagerId == _managerId) != 0) 
                     return false;
             }
             
@@ -45,6 +45,7 @@ namespace Bookazon.Services
                 var entity =
                     ctx
                     .Authorships
+                    .Where(e => e.ManagerId == _managerId)
                     .Single(e => e.AuthorId == authorId && e.ProductId == productId);
 
                 ctx.Authorships.Remove(entity);
