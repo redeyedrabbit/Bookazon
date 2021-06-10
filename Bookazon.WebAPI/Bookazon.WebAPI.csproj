@@ -318,7 +318,7 @@
       <Name>Bookazon.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\Bookazon.Models\Bookazon.Models.csproj">
-      <Project>{861F09BC-87DB-4734-9818-17C2566B9F5D}</Project>
+      <Project>{861f09bc-87db-4734-9818-17c2566b9f5d}</Project>
       <Name>Bookazon.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\Bookazon.Services\Bookazon.Services.csproj">
