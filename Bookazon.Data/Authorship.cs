@@ -10,16 +10,17 @@ namespace Bookazon.Data
 {
     public class Authorship
     {
+        [Key]
         public int Id { get; set; }
 
         [Required]
         public Guid ManagerId { get; set; }
-
-        [ForeignKey(nameof(Authors))]
+        
         public int AuthorId { get; set; }
-
-        [ForeignKey(nameof(Products))]
+        public virtual Author Author { get; set; }
+        
         public int ProductId { get; set; }
+        public virtual Product Product { get; set; }
 
         public virtual IEnumerable<Product> Products { get; set; }
         public virtual IEnumerable<Author> Authors { get; set; }
