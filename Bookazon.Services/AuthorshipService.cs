@@ -28,6 +28,7 @@ namespace Bookazon.Services
             var entity =
                 new Authorship()
                 {
+                    ManagerId = _managerId,
                     AuthorId = authorId,
                     ProductId = productId
                 };
@@ -38,15 +39,14 @@ namespace Bookazon.Services
             }
         }
 
-        public bool DeleteAuthorship(int productId, int authorId)
+        public bool DeleteAuthorship(int authorshipId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                     .Authorships
-                    .Where(e => e.ManagerId == _managerId)
-                    .Single(e => e.AuthorId == authorId && e.ProductId == productId);
+                    .Single(e => e.Id == authorshipId && e.ManagerId == _managerId);
 
                 ctx.Authorships.Remove(entity);
 
