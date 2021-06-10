@@ -10,6 +10,7 @@ using Bookazon.Models.Authorship;
 
 namespace Bookazon.WebAPI.Controllers
 {
+    [Authorize]
     public class AuthorshipController : ApiController
     {
         public IHttpActionResult GetAllAuthorships()
