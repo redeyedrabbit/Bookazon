@@ -19,10 +19,11 @@ namespace Bookazon.WebAPI.Controllers
             return Ok(authorships);
         }
 
-        public IHttpActionResult DeleteAuthorships(AuthorshipCreate authorship)
+        public IHttpActionResult DeleteAuthorships(int productId, int authorId)
         {
+            
             var service = CreateAuthorshipService();
-            if (!service.DeleteAuthorship(authorship.ProductId, authorship.AuthorId))
+            if (!service.DeleteAuthorship(productId, authorId))
                 return InternalServerError();
 
             return Ok("Authorship deleted");
