@@ -2,6 +2,7 @@
 using Bookazon.Models.Authorship;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -71,6 +72,28 @@ namespace Bookazon.Services
                         }
                         );
                 return query.ToArray();
+            }
+        }
+
+        public IEnumerable<AuthorshipListItem> GetProductByAuthorship(int authorId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Authorships
+                    .Where(e => e.AuthorId == authorId)
+                    .Select(e =>
+
+                    new AuthorshipListItem
+                    {
+                        Id = e.Id,
+                        AuthorId = e.AuthorId,
+                        ProductId = e.ProductId
+                    }
+                    );
+
+                return entity.ToArray();
             }
         }
     }
