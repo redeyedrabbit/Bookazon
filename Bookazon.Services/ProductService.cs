@@ -51,12 +51,8 @@ namespace Bookazon.Services
                         new ProductListItem
                         {
                             ProductId = e.Id,
-                            Title = e.Title,
-<<<<<<< HEAD
-                            Authors = e.Authors.ToArray(),
-=======
+                            Title = e.Title,                        
                             Authors = e.Authors.Select(a => a.AuthorId).ToList(),
->>>>>>> d318452872a406ec625342b2a66037581b60e9cb
                             TypeOfGenre = e.TypeofGenre
                         }
                         );
@@ -109,6 +105,27 @@ namespace Bookazon.Services
                         Price = entity.Price,
                         TypeOfCondition = entity.TypeOfCondition
                     };
+            }
+        }
+
+        public IEnumerable<ProductDetail> GetProductByPublisherId(int publisherId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Products
+                    .Where(e => e.PublisherId == publisherId)
+                    .Select(
+                        e =>
+                        new ProductDetail
+                        {
+                            Id= e.Id,
+                            Title = e.Title,
+                            Authors = e.Authors.Select(a => a.AuthorId).ToList(),                            
+                        }
+                        );
+                return query.ToArray();
             }
         }
 

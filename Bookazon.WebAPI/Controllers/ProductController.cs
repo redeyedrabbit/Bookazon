@@ -34,6 +34,12 @@ namespace Bookazon.WebAPI.Controllers
             var product = productService.GetProductById(id);
             return Ok(product);
         }
+        public IHttpActionResult GetByProductsByPublisherId(int publisherId)
+        {
+            ProductService productService = CreateProductService();
+            var product = productService.GetProductByPublisherId(publisherId);
+            return Ok(product);
+        }
 
         public IHttpActionResult Post(ProductCreate product)
         {

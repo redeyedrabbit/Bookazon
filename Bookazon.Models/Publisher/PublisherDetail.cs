@@ -11,5 +11,6 @@ namespace Bookazon.Models.Publisher
     {
         public int PublisherId { get; set; }
         public string Name { get; set; }       
+        public List<int> ProductsProduced { get; set; }
     }
 }
