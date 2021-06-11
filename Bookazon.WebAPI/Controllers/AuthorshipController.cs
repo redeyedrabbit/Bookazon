@@ -45,6 +45,17 @@ namespace Bookazon.WebAPI.Controllers
             return Ok("Authorship sucessfully added.");
         }
 
+        public IHttpActionResult GetProductByAuthor(int authorId)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            AuthorshipService authorshipService = CreateAuthorshipService();
+            var authorships = authorshipService.GetProductByAuthorship(authorId);
+
+            return Ok(authorships);
+        }
+
             private AuthorshipService CreateAuthorshipService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
