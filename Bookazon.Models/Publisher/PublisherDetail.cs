@@ -10,6 +10,7 @@ namespace Bookazon.Models.Publisher
     public class PublisherDetail
     {
         public int PublisherId { get; set; }
-        public string Name { get; set; }
+        public string Name { get; set; }       
+        public List<int> ProductsProduced { get; set; }
     }
 }
