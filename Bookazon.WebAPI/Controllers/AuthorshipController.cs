@@ -19,7 +19,7 @@ namespace Bookazon.WebAPI.Controllers
             var authorships = authorshipService.GetAuthorships();
             return Ok(authorships);
         }
-
+                
         public IHttpActionResult DeleteAuthorships(int id)
         {
             if (!ModelState.IsValid)
@@ -28,6 +28,7 @@ namespace Bookazon.WebAPI.Controllers
             var service = CreateAuthorshipService();
 
             if (!service.DeleteAuthorship(id))
+
                 return InternalServerError();
 
             return Ok("Authorship deleted");
