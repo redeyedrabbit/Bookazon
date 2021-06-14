@@ -34,6 +34,12 @@ namespace Bookazon.WebAPI.Controllers
             var product = productService.GetProductById(id);
             return Ok(product);
         }
+        public IHttpActionResult GetByPriceRange(decimal lowPrice, decimal highPrice)
+        {
+            ProductService productService = CreateProductService();
+            var product = productService.GetAllProductsWithinPriceRange(lowPrice, highPrice);
+            return Ok(product);
+        }
         public IHttpActionResult GetByProductsByPublisherId(int publisherId)
         {
             ProductService productService = CreateProductService();
@@ -52,6 +58,19 @@ namespace Bookazon.WebAPI.Controllers
                 return InternalServerError();
 
             return Ok("Product successfully created.");
+        }
+
+        public IHttpActionResult PostWithAuthorship(ProductCreate product, string authorLastName)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateProductService();
+
+            if (!service.CreateProductWithAuthor(product, authorLastName))
+                return InternalServerError();
+
+            return Ok("Product and authorship successfully created.");
         }
 
         public IHttpActionResult Put(ProductEdit product)
