@@ -69,7 +69,7 @@ namespace Bookazon.Services
                 {
                     AuthorshipService connecter = new AuthorshipService(_managerId);
                     var findNewProductId = ctx.Products.Single(e => e.Title == model.Title);
-                    bool authorshipWasAdded = connecter.ConnectAuthorToBook(entity.Id, foundAuthorId.AuthorId);
+                    bool authorshipWasAdded = connecter.ConnectAuthorToBook(findNewProductId.Id, foundAuthorId.AuthorId);
                     if (productWasAdded == true && authorshipWasAdded == true) return true;
                 }
                 else
