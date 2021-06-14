@@ -7,13 +7,23 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Description;
 
 namespace Bookazon.WebAPI.Controllers
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ProductController : ApiController
     {
-        [Authorize]
 
+        /// <summary>
+        /// Get all products in the database.
+        /// </summary>
+        /// <returns>
+        /// The product information for each product in the database, 
+        /// </returns>
+        [ResponseType(typeof(ProductListItem))]
         public IHttpActionResult GetAll()
         {
             ProductService productService = CreateProductService();
@@ -21,6 +31,11 @@ namespace Bookazon.WebAPI.Controllers
             return Ok(products);
         }
 
+        /// <summary>
+        /// Get a product by Title.
+        /// </summary>
+        /// <param name="title"></param>
+        /// <returns></returns>
         public IHttpActionResult GetByTitle(string title)
         {
             ProductService productService = CreateProductService();
@@ -28,18 +43,36 @@ namespace Bookazon.WebAPI.Controllers
             return Ok(product);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public IHttpActionResult GetById(int id)
         {
             ProductService productService = CreateProductService();
             var product = productService.GetProductById(id);
             return Ok(product);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="lowPrice"></param>
+        /// <param name="highPrice"></param>
+        /// <returns></returns>
         public IHttpActionResult GetByPriceRange(decimal lowPrice, decimal highPrice)
         {
             ProductService productService = CreateProductService();
             var product = productService.GetAllProductsWithinPriceRange(lowPrice, highPrice);
             return Ok(product);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="publisherId"></param>
+        /// <returns></returns>
         public IHttpActionResult GetByProductsByPublisherId(int publisherId)
         {
             ProductService productService = CreateProductService();
@@ -47,6 +80,11 @@ namespace Bookazon.WebAPI.Controllers
             return Ok(product);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="product"></param>
+        /// <returns></returns>
         public IHttpActionResult Post(ProductCreate product)
         {
             if (!ModelState.IsValid)
@@ -60,6 +98,12 @@ namespace Bookazon.WebAPI.Controllers
             return Ok("Product successfully created.");
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="product"></param>
+        /// <param name="authorLastName"></param>
+        /// <returns></returns>
         public IHttpActionResult PostWithAuthorship(ProductCreate product, string authorLastName)
         {
             if (!ModelState.IsValid)
@@ -73,6 +117,11 @@ namespace Bookazon.WebAPI.Controllers
             return Ok("Product and authorship successfully created.");
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="product"></param>
+        /// <returns></returns>
         public IHttpActionResult Put(ProductEdit product)
         {
             if (!ModelState.IsValid)
@@ -86,6 +135,11 @@ namespace Bookazon.WebAPI.Controllers
             return Ok("Product successfully edited.");
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public IHttpActionResult Delete(int id)
         {
             var service = CreateProductService();
