@@ -24,6 +24,14 @@ namespace Bookazon.WebAPI.Controllers
         /// The product information for each product in the database, 
         /// </returns>
         [ResponseType(typeof(ProductListItem))]
+    [Authorize]
+    public class ProductController : ApiController
+    {
+           
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public IHttpActionResult GetAll()
         {
             ProductService productService = CreateProductService();
@@ -33,6 +41,8 @@ namespace Bookazon.WebAPI.Controllers
 
         /// <summary>
         /// Get a product by Title.
+        /// <summary>
+        /// 
         /// </summary>
         /// <param name="title"></param>
         /// <returns></returns>
@@ -104,7 +114,9 @@ namespace Bookazon.WebAPI.Controllers
         /// <param name="product"></param>
         /// <param name="authorLastName"></param>
         /// <returns></returns>
-        public IHttpActionResult PostWithAuthorship(ProductCreate product, string authorLastName)
+
+        public IHttpActionResult PostWithAuthorship(ProductCreate product, string authorFirstName, string authorLastName)
+
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
