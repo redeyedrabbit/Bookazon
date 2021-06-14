@@ -26,6 +26,8 @@ namespace Bookazon.Models.Product
 
         public Genre TypeofGenre { get; set; }
 
+        public Audience TypeofAudience { get; set; }
+
         [Required]
         public int PublisherId { get; set; }     
         

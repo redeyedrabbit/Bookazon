@@ -1,4 +1,5 @@
-﻿using Bookazon.Models.Product;
+﻿using Bookazon.Data;
+using Bookazon.Models.Product;
 using Bookazon.Services;
 using Microsoft.AspNet.Identity;
 using System;
@@ -34,16 +35,32 @@ namespace Bookazon.WebAPI.Controllers
             var product = productService.GetProductById(id);
             return Ok(product);
         }
+
         public IHttpActionResult GetByPriceRange(decimal lowPrice, decimal highPrice)
         {
             ProductService productService = CreateProductService();
             var product = productService.GetAllProductsWithinPriceRange(lowPrice, highPrice);
             return Ok(product);
         }
+
         public IHttpActionResult GetByProductsByPublisherId(int publisherId)
         {
             ProductService productService = CreateProductService();
             var product = productService.GetProductByPublisherId(publisherId);
+            return Ok(product);
+        }
+
+        public IHttpActionResult GetByProductsByStarRating(double starRating)
+        {
+            ProductService productService = CreateProductService();
+            var product = productService.GetProductByStarRating(starRating);
+            return Ok(product);
+        }
+
+        public IHttpActionResult GetByProductsByAudience(Audience audience)
+        {
+            ProductService productService = CreateProductService();
+            var product = productService.GetProductByAudience(audience);
             return Ok(product);
         }
 
