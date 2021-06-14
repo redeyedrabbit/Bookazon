@@ -10,17 +10,25 @@ using System.Web.Http;
 
 namespace Bookazon.WebAPI.Controllers
 {
+    [Authorize]
     public class ProductController : ApiController
     {
-        [Authorize]
-
+           
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public IHttpActionResult GetAll()
         {
             ProductService productService = CreateProductService();
             var products = productService.GetAllProducts();
             return Ok(products);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="title"></param>
+        /// <returns></returns>
         public IHttpActionResult GetByTitle(string title)
         {
             ProductService productService = CreateProductService();
@@ -60,7 +68,7 @@ namespace Bookazon.WebAPI.Controllers
             return Ok("Product successfully created.");
         }
 
-        public IHttpActionResult PostWithAuthorship(ProductCreate product, string authorLastName)
+        public IHttpActionResult PostWithAuthorship(ProductCreate product, string authorFirstName, string authorLastName)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
