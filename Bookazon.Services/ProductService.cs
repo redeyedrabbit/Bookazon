@@ -39,6 +39,43 @@ namespace Bookazon.Services
             }
         }
 
+        public bool CreateProductWithAuthor(ProductCreate model, string authorLastName)
+        {
+            var entity =
+                new Product()
+                {
+                    ManagerId = _managerId,
+                    Title = model.Title,
+                    Description = model.Description,
+                    TypeOfFormat = model.TypeOfFormat,
+                    TypeofGenre = model.TypeofGenre,
+                    PublisherId = model.PublisherId,
+                    PublishYear = model.PublishYear,
+                    Price = model.Price,
+                    TypeOfCondition = model.TypeOfCondition
+                };
+
+            using (var ctx = new ApplicationDbContext())
+            {
+                ctx.Products.Add(entity);
+                bool productWasAdded = ctx.SaveChanges() == 1;
+                var foundAuthorId =
+                    ctx
+                    .Authors
+                    .Single(e => e.LastName.Contains(authorLastName));
+
+                if (foundAuthorId != null)
+                {
+                    AuthorshipService connecter = new AuthorshipService(_managerId);
+                    bool authorshipWasAdded = connecter.ConnectAuthorToBook(entity.Id, foundAuthorId.AuthorId);
+                    if (productWasAdded == true && authorshipWasAdded == true) return true;
+                };
+                return false;                
+            }
+
+
+        }
+
         public IEnumerable<ProductListItem> GetAllProducts()
         {
             using (var ctx = new ApplicationDbContext())

@@ -54,6 +54,19 @@ namespace Bookazon.WebAPI.Controllers
             return Ok("Product successfully created.");
         }
 
+        public IHttpActionResult PostWithAuthorship(ProductCreate product, string authorLastName)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateProductService();
+
+            if (!service.CreateProductWithAuthor(product, authorLastName))
+                return InternalServerError();
+
+            return Ok("Product and authorship successfully created.");
+        }
+
         public IHttpActionResult Put(ProductEdit product)
         {
             if (!ModelState.IsValid)
