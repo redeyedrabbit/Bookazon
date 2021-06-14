@@ -98,6 +98,29 @@ namespace Bookazon.Services
             }
         }
 
+        public IEnumerable<ProductListItem> GetAllProductsWithinPriceRange(decimal lowestPrice, decimal highestPrice)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Products
+                    .Where(e => e.Price >= lowestPrice && e.Price <= highestPrice)
+                    .Select(
+                        e =>
+                        new ProductListItem
+                        {
+                            ProductId = e.Id,
+                            Title = e.Title,
+                            Authors = e.Authors.Select(a => a.AuthorId).ToList(),
+                            TypeOfGenre = e.TypeofGenre
+                        }
+                        );
+
+                return query.ToArray();
+            }
+        }
+
         public IEnumerable<ProductListItem> GetTitlePartial(string title)
         {
             using (var ctx = new ApplicationDbContext())
