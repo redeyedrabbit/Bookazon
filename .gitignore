@@ -332,10 +332,6 @@ __pycache__/
 *.odx.cs
 *.xsd.cs
 
-# Weird file
-Documentation.xml
-Documentation.XML
-
 # OpenCover UI analysis results
 OpenCover/
 
