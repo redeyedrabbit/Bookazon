@@ -113,7 +113,7 @@ namespace Bookazon.Services
                             ProductId = e.Id,
                             Title = e.Title,
                             Authors = e.Authors.Select(a => a.AuthorId).ToList(),
-                            TypeOfGenre = e.TypeofGenre
+                            TypeOfGenre = e.TypeofGenre,                            
                         }
                         );
 
