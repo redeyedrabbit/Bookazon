@@ -15,23 +15,35 @@ namespace Bookazon.Data
     {
         [Key]
         public int Id { get; set; }
+
         [Required]
         public Guid ManagerId { get; set; }
+
         [Required]
         public string Title { get; set; }
+
         [Required]
         public string Description { get; set; }
+
+        public double StarRating { get; set; }
+
         [Required]
         public FormatType TypeOfFormat { get; set; }
+
         public Genre TypeofGenre { get; set; }
+
         [Required]
         public int PublisherId { get; set; }
+
         public int PublishYear { get; set; }
+
         [Required]
         public decimal Price { get; set; }
+
         public Condition TypeOfCondition { get; set; }
 
         public virtual List<Authorship> Authors { get; set; }
+
         public virtual List<Publisher> Publishers { get; set; }
 
     }

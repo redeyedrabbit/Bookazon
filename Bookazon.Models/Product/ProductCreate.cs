@@ -18,13 +18,21 @@ namespace Bookazon.Models.Product
         [MinLength(3, ErrorMessage = "The description needs to be longer.")]
         [MaxLength(80, ErrorMessage = "Please enter a more brief description.")]
         public string Description { get; set; }
+
+        public double StarRating { get; set; }
+
         [Required]
         public FormatType TypeOfFormat { get; set; }
+
         public Genre TypeofGenre { get; set; }
+
         [Required]
-        public int PublisherId { get; set; }        
+        public int PublisherId { get; set; }     
+        
         public int PublishYear { get; set; }
+
         public decimal Price { get; set; }
+
         public Condition TypeOfCondition { get; set; }
     }
 }
