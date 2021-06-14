@@ -98,7 +98,7 @@ namespace Bookazon.Services
             }
         }
 
-        public IEnumerable<ProductListItem> GetAllProductsWithinPriceRange(decimal lowestPrice, decimal highestPrice)
+        public IEnumerable<ProductPriceRangeItem> GetAllProductsWithinPriceRange(decimal lowestPrice, decimal highestPrice)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -108,12 +108,12 @@ namespace Bookazon.Services
                     .Where(e => e.Price >= lowestPrice && e.Price <= highestPrice)
                     .Select(
                         e =>
-                        new ProductListItem
+                        new ProductPriceRangeItem
                         {
                             ProductId = e.Id,
                             Title = e.Title,
                             Authors = e.Authors.Select(a => a.AuthorId).ToList(),
-                            TypeOfGenre = e.TypeofGenre,                            
+                            Price = e.Price                          
                         }
                         );
 
