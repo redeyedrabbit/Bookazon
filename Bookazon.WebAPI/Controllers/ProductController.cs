@@ -16,18 +16,6 @@ namespace Bookazon.WebAPI.Controllers
     /// </summary>
     public class ProductController : ApiController
     {
-
-        /// <summary>
-        /// Get all products in the database.
-        /// </summary>
-        /// <returns>
-        /// The product information for each product in the database, 
-        /// </returns>
-        [ResponseType(typeof(ProductListItem))]
-    [Authorize]
-    public class ProductController : ApiController
-    {
-           
         /// <summary>
         /// 
         /// </summary>
@@ -123,7 +111,7 @@ namespace Bookazon.WebAPI.Controllers
 
             var service = CreateProductService();
 
-            if (!service.CreateProductWithAuthor(product, authorLastName))
+            if (!service.CreateProductWithAuthor(product, authorFirstName, authorLastName))
                 return InternalServerError();
 
             return Ok("Product and authorship successfully created.");
