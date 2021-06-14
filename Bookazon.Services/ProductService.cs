@@ -1,4 +1,5 @@
 ﻿using Bookazon.Data;
+using Bookazon.Models.Author;
 using Bookazon.Models.Product;
 using System;
 using System.Collections.Generic;
@@ -41,7 +42,7 @@ namespace Bookazon.Services
             }
         }
 
-        public bool CreateProductWithAuthor(ProductCreate model, string authorLastName)
+        public bool CreateProductWithAuthor(ProductCreate model, string authorFirstName, string authorLastName)
         {
             var entity =
                 new Product()
@@ -66,15 +67,29 @@ namespace Bookazon.Services
                 var foundAuthorId =
                     ctx
                     .Authors
-                    .Single(e => e.LastName.Contains(authorLastName));
+                    .Single(e => e.LastName == authorFirstName && e.FirstName == authorFirstName);
 
                 if (foundAuthorId != null)
                 {
                     AuthorshipService connecter = new AuthorshipService(_managerId);
-                    bool authorshipWasAdded = connecter.ConnectAuthorToBook(entity.Id, foundAuthorId.AuthorId);
+                    var findNewProductId = ctx.Products.Single(e => e.Title == model.Title);
+                    bool authorshipWasAdded = connecter.ConnectAuthorToBook(findNewProductId.Id, foundAuthorId.AuthorId);
                     if (productWasAdded == true && authorshipWasAdded == true) return true;
-                };
-                return false;
+                }
+                else
+                {
+                    AuthorService authorService = new AuthorService(_managerId);
+                    AuthorCreate newAuthor = new AuthorCreate();
+                    newAuthor.FirstName = authorFirstName;
+                    newAuthor.LastName = authorLastName;
+                    bool authorWasAdded = authorService.CreateAuthor(newAuthor);
+                    var findNewAuthorId = ctx.Authors.Single(e => e.LastName == authorFirstName && e.FirstName == authorFirstName);
+                    var findNewProductId = ctx.Products.Single(e => e.Title == model.Title);
+                    AuthorshipService connecter = new AuthorshipService(_managerId);
+                    bool authorshipWasAdded = connecter.ConnectAuthorToBook(findNewProductId.Id, findNewAuthorId.AuthorId);
+                    if (productWasAdded && authorshipWasAdded && authorshipWasAdded) return true;
+                }
+                return false;                
             }
 
 
@@ -103,7 +118,7 @@ namespace Bookazon.Services
             }
         }
 
-        public IEnumerable<ProductListItem> GetAllProductsWithinPriceRange(decimal lowestPrice, decimal highestPrice)
+        public IEnumerable<ProductPriceRangeItem> GetAllProductsWithinPriceRange(decimal lowestPrice, decimal highestPrice)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -113,7 +128,7 @@ namespace Bookazon.Services
                     .Where(e => e.Price >= lowestPrice && e.Price <= highestPrice)
                     .Select(
                         e =>
-                        new ProductListItem
+                        new ProductPriceRangeItem
                         {
                             ProductId = e.Id,
                             Title = e.Title,
