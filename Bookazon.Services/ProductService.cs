@@ -28,12 +28,13 @@ namespace Bookazon.Services
                     StarRating = model.StarRating,
                     TypeOfFormat = model.TypeOfFormat,
                     TypeofGenre = model.TypeofGenre,
+                    TypeofAudience = model.TypeofAudience,
                     PublisherId = model.PublisherId,
                     PublishYear = model.PublishYear,
                     Price = model.Price,
                     TypeOfCondition = model.TypeOfCondition
                 };
-                
+
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Products.Add(entity);
@@ -52,6 +53,7 @@ namespace Bookazon.Services
                     StarRating = model.StarRating,
                     TypeOfFormat = model.TypeOfFormat,
                     TypeofGenre = model.TypeofGenre,
+                    TypeofAudience = model.TypeofAudience,
                     PublisherId = model.PublisherId,
                     PublishYear = model.PublishYear,
                     Price = model.Price,
@@ -105,8 +107,9 @@ namespace Bookazon.Services
                         new ProductListItem
                         {
                             ProductId = e.Id,
-                            Title = e.Title,                        
+                            Title = e.Title,
                             Authors = e.Authors.Select(a => a.AuthorId).ToList(),
+                            StarRating = e.StarRating,
                             TypeOfGenre = e.TypeofGenre
                         }
                         );
@@ -130,7 +133,8 @@ namespace Bookazon.Services
                             ProductId = e.Id,
                             Title = e.Title,
                             Authors = e.Authors.Select(a => a.AuthorId).ToList(),
-                            Price = e.Price                          
+                            StarRating = e.StarRating,
+                            Price = e.Price
                         }
                         );
 
@@ -153,6 +157,7 @@ namespace Bookazon.Services
                             ProductId = e.Id,
                             Title = e.Title,
                             Authors = e.Authors.Select(a => a.AuthorId).ToList(),
+                            StarRating = e.StarRating,
                             TypeOfGenre = e.TypeofGenre
                         }
                         );
@@ -175,8 +180,10 @@ namespace Bookazon.Services
                         Title = entity.Title,
                         Description = entity.Description,
                         Authors = entity.Authors.Select(a => a.AuthorId).ToList(),
+                        StarRating = entity.StarRating,
                         TypeOfFormat = entity.TypeOfFormat,
                         TypeofGenre = entity.TypeofGenre,
+                        TypeofAudience = entity.TypeofAudience,
                         PublisherId = entity.PublisherId,
                         PublishYear = entity.PublishYear,
                         Price = entity.Price,
@@ -197,16 +204,86 @@ namespace Bookazon.Services
                         e =>
                         new ProductDetail
                         {
-                            Id= e.Id,
+                            Id = e.Id,
                             Title = e.Title,
-                            Authors = e.Authors.Select(a => a.AuthorId).ToList(),                            
+                            Authors = e.Authors.Select(a => a.AuthorId).ToList(),
+                            StarRating = e.StarRating
                         }
                         );
                 return query.ToArray();
             }
         }
 
-        public bool UpdateProduct (ProductEdit model)
+        public IEnumerable<ProductListItem> GetProductByStarRating(double starRating)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Products
+                    .Where(e => e.StarRating == starRating)
+                    .Select(
+                        e =>
+                        new ProductListItem
+                        {
+                            ProductId = e.Id,
+                            Title = e.Title,
+                            Authors = e.Authors.Select(a => a.AuthorId).ToList(),
+                            StarRating = e.StarRating
+                        }
+                        );
+
+                return query.ToArray();
+            }
+        }
+
+        public IEnumerable<ProductListItem> GetProductByAudience(Audience audience)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Products
+                    .Where(e => e.TypeofAudience == audience) 
+                    .Select(
+                        e =>
+                        new ProductListItem
+                        {
+                            ProductId = e.Id,
+                            Title = e.Title,
+                            Authors = e.Authors.Select(a => a.AuthorId).ToList(),
+                            StarRating = e.StarRating
+                        }
+                        );
+
+                return query.ToArray();
+            }
+        }
+
+        public IEnumerable<ProductListItem> GetProductByGenre(Genre genre)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Products
+                    .Where(e => e.TypeofGenre == genre)
+                    .Select(
+                        e =>
+                        new ProductListItem
+                        {
+                            ProductId = e.Id,
+                            Title = e.Title,
+                            Authors = e.Authors.Select(a => a.AuthorId).ToList(),
+                            StarRating = e.StarRating
+                        }
+                        );
+
+                return query.ToArray();
+            }
+        }
+
+        public bool UpdateProduct(ProductEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -217,7 +294,9 @@ namespace Bookazon.Services
 
                 entity.Title = model.Title;
                 entity.Description = model.Description;
+                entity.StarRating = model.StarRating;
                 entity.TypeofGenre = model.TypeofGenre;
+                entity.TypeofAudience = model.TypeofAudience;
                 entity.PublisherId = model.PublisherId;
                 entity.PublishYear = model.PublishYear;
                 entity.Price = model.Price;
@@ -242,5 +321,5 @@ namespace Bookazon.Services
         }
     }
 }
-    
+
 

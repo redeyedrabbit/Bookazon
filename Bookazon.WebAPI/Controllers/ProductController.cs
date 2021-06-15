@@ -1,4 +1,5 @@
-﻿using Bookazon.Models.Product;
+﻿using Bookazon.Data;
+using Bookazon.Models.Product;
 using Bookazon.Services;
 using Microsoft.AspNet.Identity;
 using System;
@@ -17,17 +18,6 @@ namespace Bookazon.WebAPI.Controllers
     public class ProductController : ApiController
     {
 
-        /// <summary>
-        /// Get all products in the database.
-        /// </summary>
-        /// <returns>
-        /// The product information for each product in the database, 
-        /// </returns>
-        [ResponseType(typeof(ProductListItem))]
-    [Authorize]
-    public class ProductController : ApiController
-    {
-           
         /// <summary>
         /// 
         /// </summary>
@@ -83,10 +73,31 @@ namespace Bookazon.WebAPI.Controllers
         /// </summary>
         /// <param name="publisherId"></param>
         /// <returns></returns>
-        public IHttpActionResult GetByProductsByPublisherId(int publisherId)
+        public IHttpActionResult GetByProductByPublisherId(int publisherId)
         {
             ProductService productService = CreateProductService();
             var product = productService.GetProductByPublisherId(publisherId);
+            return Ok(product);
+        }
+
+        public IHttpActionResult GetByProductByStarRating(double starRating)
+        {
+            ProductService productService = CreateProductService();
+            var product = productService.GetProductByStarRating(starRating);
+            return Ok(product);
+        }
+
+        public IHttpActionResult GetByProductByAudience(Audience audience)
+        {
+            ProductService productService = CreateProductService();
+            var product = productService.GetProductByAudience(audience);
+            return Ok(product);
+        }
+
+        public IHttpActionResult GetByProductByGenre(Genre genre)
+        {
+            ProductService productService = CreateProductService();
+            var product = productService.GetProductByGenre(genre);
             return Ok(product);
         }
 
@@ -123,7 +134,7 @@ namespace Bookazon.WebAPI.Controllers
 
             var service = CreateProductService();
 
-            if (!service.CreateProductWithAuthor(product, authorLastName))
+            if (!service.CreateProductWithAuthor(product, authorFirstName, authorLastName))
                 return InternalServerError();
 
             return Ok("Product and authorship successfully created.");
