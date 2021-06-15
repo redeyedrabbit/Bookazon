@@ -95,6 +95,10 @@
     <Compile Include="Migrations\202106111724597_InitialMigration.Designer.cs">
       <DependentUpon>202106111724597_InitialMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106141805101_RachelOne.cs" />
+    <Compile Include="Migrations\202106141805101_RachelOne.Designer.cs">
+      <DependentUpon>202106141805101_RachelOne.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -110,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106111724597_InitialMigration.resx">
       <DependentUpon>202106111724597_InitialMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106141805101_RachelOne.resx">
+      <DependentUpon>202106141805101_RachelOne.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
