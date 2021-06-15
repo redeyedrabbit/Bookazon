@@ -17,6 +17,27 @@ namespace Bookazon.WebAPI.Controllers
     public class AuthorController : ApiController
     {
         /// <summary>
+        /// Create a new author and add them to the database.
+        /// </summary>
+        /// <param name="author"></param>
+        /// <returns>
+        /// Allows a user to create a new author and save them to the database. If the author is successfully created, returns the message "Author successfully created."
+        /// </returns>
+        [ResponseType(typeof(string))]
+        public IHttpActionResult Post(AuthorCreate author)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateAuthorService();
+
+            if (!service.CreateAuthor(author))
+                return InternalServerError();
+
+            return Ok("Author sucessfully created.");
+        }
+
+        /// <summary>
         /// Get all authors in the database.
         /// </summary>
         /// <returns>
@@ -32,21 +53,6 @@ namespace Bookazon.WebAPI.Controllers
         }
 
         /// <summary>
-        /// Get authors by first name.
-        /// </summary>
-        /// <param name="firstName"></param>
-        /// <returns>
-        /// Allows a user to search the database for authors by their first name, and returns all authors that match that criteria with their AuthorId, FirstName and LastName.
-        /// </returns>
-        [ResponseType(typeof(AuthorDetail))]
-        public IHttpActionResult GetAuthorsByFirst(string firstName)
-        {
-            AuthorService authorService = CreateAuthorService();
-            var authors = authorService.GetAuthorByFirstName(firstName);
-            return Ok(authors);
-        }
-
-        /// <summary>
         /// Get authors by last name.
         /// </summary>
         /// <param name="lastName"></param>
@@ -58,6 +64,21 @@ namespace Bookazon.WebAPI.Controllers
         {
             AuthorService authorService = CreateAuthorService();
             var authors = authorService.GetAuthorByLastName(lastName);
+            return Ok(authors);
+        }
+
+        /// <summary>
+        /// Get authors by first name.
+        /// </summary>
+        /// <param name="firstName"></param>
+        /// <returns>
+        /// Allows a user to search the database for authors by their first name, and returns all authors that match that criteria with their AuthorId, FirstName and LastName.
+        /// </returns>
+        [ResponseType(typeof(AuthorDetail))]
+        public IHttpActionResult GetAuthorsByFirst(string firstName)
+        {
+            AuthorService authorService = CreateAuthorService();
+            var authors = authorService.GetAuthorByFirstName(firstName);
             return Ok(authors);
         }
 
@@ -78,7 +99,7 @@ namespace Bookazon.WebAPI.Controllers
         }
 
         /// <summary>
-        /// Get authors by their AuthorId.
+        /// Get author by their AuthorId.
         /// </summary>
         /// <param name="id"></param>
         /// <returns>
@@ -90,27 +111,6 @@ namespace Bookazon.WebAPI.Controllers
             AuthorService authorService = CreateAuthorService();
             var author = authorService.GetAuthorById(id);
             return Ok(author);
-        }
-
-        /// <summary>
-        /// Create a new author and add them to the database.
-        /// </summary>
-        /// <param name="author"></param>
-        /// <returns>
-        /// Allows a user to create a new author and save them to the database. If the author is successfully created, returns the message "Author successfully created."
-        /// </returns>
-        [ResponseType(typeof(string))]
-        public IHttpActionResult Post(AuthorCreate author)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            var service = CreateAuthorService();
-
-            if (!service.CreateAuthor(author))
-                return InternalServerError();
-
-            return Ok("Author sucessfully created.");
         }
 
         /// <summary>

@@ -49,9 +49,6 @@ namespace Bookazon.Data
 
         public virtual List<Authorship> Authors { get; set; }
 
-        public virtual List<Publisher> Publishers { get; set; }
-
-        //[Required]
-        //public int Quantity { get; set; }
+        public virtual List<Publisher> Publishers { get; set; }       
     }
 }

@@ -51,6 +51,15 @@ namespace Bookazon.WebAPI.Controllers
 
             return Ok("Authorship successfully deleted");
         }
+
+        /// <summary>
+        /// Create a new authorship and add it to the database. 
+        /// </summary>
+        /// <param name="authorship"></param>
+        /// <returns>
+        /// Allows a user to link an Author to a Product through a joining table. You will need to create an Author and a Product before you can link them. If successful, returns the message "Authorship successfully added."
+        /// </returns>
+        [ResponseType(typeof(string))]
         public IHttpActionResult PostAuthorship(AuthorshipCreate authorship)
         {
             if (!ModelState.IsValid)
@@ -64,6 +73,14 @@ namespace Bookazon.WebAPI.Controllers
             return Ok("Authorship sucessfully added.");
         }
 
+        /// <summary>
+        /// Get all products by AuthorId.
+        /// </summary>
+        /// <param name="authorId"></param>
+        /// <returns>
+        /// Returns all products linked to the entered AuthorId, returns the Authorship Id, AuthorId, and ProductId.
+        /// </returns>
+        [ResponseType(typeof(AuthorshipListItem))]
         public IHttpActionResult GetProductByAuthor(int authorId)
         {
             if (!ModelState.IsValid)
