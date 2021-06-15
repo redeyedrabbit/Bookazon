@@ -26,6 +26,8 @@ namespace Bookazon.Services
 
             using (var ctx = new ApplicationDbContext())
             {
+                if (ctx.Publishers.Any(e => e.Name == model.Name))
+                    return false;
                 ctx.Publishers.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
@@ -36,6 +38,8 @@ namespace Bookazon.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
+                if (!ctx.Publishers.Any(e => e.Name == model.Name))
+                    return false;
                 var entity = ctx
                     .Publishers.Single(e => e.PublisherId == model.PublisherId && e.ManagerId == _managerId);
 
@@ -67,6 +71,9 @@ namespace Bookazon.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
+                if (!ctx.Publishers.Any(e => e.PublisherId == id))
+                    return null;
+
                 var entity = ctx
                     .Publishers.Single(e => e.PublisherId == id);
                 return new PublisherDetail
@@ -82,6 +89,9 @@ namespace Bookazon.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
+                if (!ctx.Publishers.Any(e => e.PublisherId == publisherId))
+                    return false;
+
                 var entity = ctx
                     .Publishers
                     .Single(e => e.PublisherId == publisherId && e.ManagerId == _managerId);

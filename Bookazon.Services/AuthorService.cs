@@ -19,7 +19,7 @@ namespace Bookazon.Services
         }
 
         public bool CreateAuthor(AuthorCreate model)
-        {
+        {                       
             var entity =
                 new Author()
                 {
@@ -30,6 +30,8 @@ namespace Bookazon.Services
 
             using (var ctx = new ApplicationDbContext())
             {
+                if (ctx.Authors.Any(e => e.FirstName == model.FirstName && e.LastName == model.LastName))
+                    return false;
                 ctx.Authors.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
@@ -101,6 +103,8 @@ namespace Bookazon.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
+                if (!ctx.Authors.Any(e => e.FirstName == firstName && e.LastName == lastName))
+                    return null;
                 var entity =
                     ctx
                     .Authors
@@ -119,6 +123,9 @@ namespace Bookazon.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
+                if (!ctx.Authors.Any(e => e.AuthorId == id))
+                    return null;
+
                 var entity =
                     ctx
                     .Authors
@@ -137,6 +144,9 @@ namespace Bookazon.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
+                if (!ctx.Authors.Any(e => e.AuthorId == model.AuthorId))
+                    return false;
+
                 var entity =
                     ctx
                     .Authors
@@ -153,6 +163,9 @@ namespace Bookazon.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
+                if (!ctx.Authors.Any(e => e.AuthorId == authorId))
+                    return false;
+
                 var entity =
                     ctx
                     .Authors
