@@ -124,13 +124,14 @@ namespace Bookazon.WebAPI.Controllers
         /// </returns>
         [ResponseType(typeof(string))]
         public IHttpActionResult PostWithAuthorship(ProductCreate product, string authorFirstName,  string authorLastName)
-        {
+
+         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var service = CreateProductService();
 
-            if (!service.CreateProductWithAuthor(product, authorLastName))
+            if (!service.CreateProductWithAuthor(product, authorFirstName, authorLastName))
                 return InternalServerError();
 
             return Ok("Product and Authorship successfully created.");
