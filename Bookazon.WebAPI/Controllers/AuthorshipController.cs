@@ -7,19 +7,37 @@ using System.Net.Http;
 using System.Web.Http;
 using Bookazon.Services;
 using Bookazon.Models.Authorship;
+using System.Web.Http.Description;
 
 namespace Bookazon.WebAPI.Controllers
 {
-    [Authorize]
+    /// <summary>
+    /// Controller for Authorships and Authorship Services
+    /// </summary>
     public class AuthorshipController : ApiController
     {
+        /// <summary>
+        /// Get all authorships in the database.
+        /// </summary>
+        /// <returns>
+        /// Returns the authorship information for each authorship in the database, listing the AuthorId and ProductId. Each authorship consists of an author and a product. Some products may have multiple authors. 
+        /// </returns>
+        [ResponseType(typeof(AuthorshipListItem))]
         public IHttpActionResult GetAllAuthorships()
         {
             AuthorshipService authorshipService = CreateAuthorshipService();
             var authorships = authorshipService.GetAuthorships();
             return Ok(authorships);
         }
-                
+
+        /// <summary>
+        /// Delete an existing authorship.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>
+        /// Allows a user to delete an existing authorship by that authorship's Id. If successful, returns the message "Authorship successfully deleted."
+        /// </returns>
+        [ResponseType(typeof(string))]
         public IHttpActionResult DeleteAuthorships(int id)
         {
             if (!ModelState.IsValid)
@@ -31,7 +49,7 @@ namespace Bookazon.WebAPI.Controllers
 
                 return InternalServerError();
 
-            return Ok("Authorship deleted");
+            return Ok("Authorship successfully deleted");
         }
         public IHttpActionResult PostAuthorship(AuthorshipCreate authorship)
         {
