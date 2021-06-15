@@ -103,6 +103,10 @@
     <Compile Include="Migrations\202106151414146_BookazonV3.Designer.cs">
       <DependentUpon>202106151414146_BookazonV3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106151326266_rachelsLatestUpdate.cs" />
+    <Compile Include="Migrations\202106151326266_rachelsLatestUpdate.Designer.cs">
+      <DependentUpon>202106151326266_rachelsLatestUpdate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -124,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202106151414146_BookazonV3.resx">
       <DependentUpon>202106151414146_BookazonV3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106151326266_rachelsLatestUpdate.resx">
+      <DependentUpon>202106151326266_rachelsLatestUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

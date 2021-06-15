@@ -524,7 +524,7 @@
         </member>
         <member name="M:Bookazon.WebAPI.Controllers.AuthorController.getAuthorById(System.Int32)">
             <summary>
-            Get author by their AuthorId.
+            Get authors by their AuthorId.
             </summary>
             <param name="id"></param>
             <returns>
@@ -734,6 +734,19 @@
             <returns>
             Allows a user to delete an existing product by that product's ProductId. If successful, returns the message "Product successfully deleted."
             </returns>
+        </member>
+        <member name="M:Bookazon.WebAPI.Controllers.ValuesController.Get">
+            <summary>
+            Gets some very important data from the server
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Bookazon.WebAPI.Controllers.ValuesController.Get(System.Int32)">
+            <summary>
+            Looks up data by ID.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
         </member>
     </members>
 </doc>
