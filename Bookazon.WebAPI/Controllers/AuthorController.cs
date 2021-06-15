@@ -92,6 +92,14 @@ namespace Bookazon.WebAPI.Controllers
             return Ok(author);
         }
 
+        /// <summary>
+        /// Create a new author and add them to the database.
+        /// </summary>
+        /// <param name="author"></param>
+        /// <returns>
+        /// Allows a user to create a new author and save them to the database. If the author is successfully created, returns the message "Author successfully created."
+        /// </returns>
+        [ResponseType(typeof(string))]
         public IHttpActionResult Post(AuthorCreate author)
         {
             if (!ModelState.IsValid)
@@ -105,6 +113,14 @@ namespace Bookazon.WebAPI.Controllers
             return Ok("Author sucessfully created.");
         }
 
+        /// <summary>
+        /// Edit an existing author.
+        /// </summary>
+        /// <param name="author"></param>
+        /// <returns>
+        /// Allows a user to edit an existing author by that author's AuthorId. Each field must be confirmed or changed. Be sure follow the fields in the API to ensure you have all fields edited or remain unchanged. If successful, returns the message "Author successfully edited."
+        /// </returns>
+        [ResponseType(typeof(string))]
         public IHttpActionResult Put (AuthorEdit author)
         {
             if (!ModelState.IsValid)
@@ -118,6 +134,14 @@ namespace Bookazon.WebAPI.Controllers
             return Ok("Author successfully updated.");
         }
 
+        /// <summary>
+        /// Delete an existing author.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>
+        /// Allows a user to delete an existing author by that author's AuthorId. If successful, returns the message "Author successfully deleted."
+        /// </returns>
+        [ResponseType(typeof(string))]
         public IHttpActionResult Delete(int id)
         {
             var service = CreateAuthorService();
