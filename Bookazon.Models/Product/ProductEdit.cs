@@ -21,7 +21,7 @@ namespace Bookazon.Models.Product
         [MaxLength(80, ErrorMessage = "Please enter a more brief description.")]
         public string Description { get; set; }
 
-        [Range(0, 5, ErrorMessage = "The star rating must be between 0 and 5")]
+        [Range(0, 5, ErrorMessage = "The star rating must be between 0 and 5 ")]
         public double StarRating { get; set; }
 
         public Genre TypeOfGenre { get; set; }
