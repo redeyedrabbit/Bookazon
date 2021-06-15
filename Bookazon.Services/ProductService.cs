@@ -37,6 +37,8 @@ namespace Bookazon.Services
 
             using (var ctx = new ApplicationDbContext())
             {
+                if (ctx.Products.Any(e => e.Title == entity.Title && e.Description == entity.Description))
+                    return false;
                 ctx.Products.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
@@ -62,6 +64,9 @@ namespace Bookazon.Services
 
             using (var ctx = new ApplicationDbContext())
             {
+                if (ctx.Products.Any(e => e.Title == entity.Title && e.Description == entity.Description))
+                    return false;
+                
                 ctx.Products.Add(entity);
                 bool productWasAdded = ctx.SaveChanges() == 1;
                 bool hasAuthor = ctx.Authors.Any(e => e.LastName == authorLastName && e.FirstName == authorFirstName);
@@ -122,7 +127,7 @@ namespace Bookazon.Services
         public IEnumerable<ProductPriceRangeItem> GetAllProductsWithinPriceRange(decimal lowestPrice, decimal highestPrice)
         {
             using (var ctx = new ApplicationDbContext())
-            {
+            {                               
                 var query =
                     ctx
                     .Products
@@ -194,6 +199,9 @@ namespace Bookazon.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
+                if (!ctx.Products.Any(e => e.Id == id))
+                    return null;
+                
                 var entity =
                     ctx
                     .Products
@@ -221,6 +229,9 @@ namespace Bookazon.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
+                if (!ctx.Products.Any(e => e.PublisherId == publisherId))
+                    return null;
+
                 var query =
                     ctx
                     .Products
@@ -243,6 +254,9 @@ namespace Bookazon.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
+                if (!ctx.Products.Any(e => e.StarRating == starRating))
+                    return null;
+
                 var query =
                     ctx
                     .Products
@@ -266,6 +280,9 @@ namespace Bookazon.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
+                if (!ctx.Products.Any(e => e.TypeOfAudience == audience))
+                    return null;
+
                 var query =
                     ctx
                     .Products
@@ -289,6 +306,9 @@ namespace Bookazon.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
+                if (!ctx.Products.Any(e => e.TypeOfGenre == genre))
+                    return null;
+
                 var query =
                     ctx
                     .Products
@@ -312,6 +332,9 @@ namespace Bookazon.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
+                if (!ctx.Products.Any(e => e.Id == model.Id))
+                    return false;
+
                 var entity =
                     ctx
                     .Products
@@ -334,6 +357,9 @@ namespace Bookazon.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
+                if (!ctx.Products.Any(e => e.Id == productId))
+                    return false;
+
                 var entity =
                     ctx
                     .Products
