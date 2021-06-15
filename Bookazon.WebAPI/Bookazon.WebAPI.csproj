@@ -287,7 +287,20 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Bookazon.Data\Bookazon.Data.csproj">
+      <Project>{e03dfbd2-9e04-4e14-93fd-99721b14a7e3}</Project>
+      <Name>Bookazon.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bookazon.Models\Bookazon.Models.csproj">
+      <Project>{861f09bc-87db-4734-9818-17c2566b9f5d}</Project>
+      <Name>Bookazon.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bookazon.Services\Bookazon.Services.csproj">
+      <Project>{dae14add-c29d-4fb8-8aae-8de5b1847175}</Project>
+      <Name>Bookazon.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
   </ItemGroup>
@@ -316,20 +329,6 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Bookazon.Data\Bookazon.Data.csproj">
-      <Project>{e03dfbd2-9e04-4e14-93fd-99721b14a7e3}</Project>
-      <Name>Bookazon.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Bookazon.Models\Bookazon.Models.csproj">
-      <Project>{861f09bc-87db-4734-9818-17c2566b9f5d}</Project>
-      <Name>Bookazon.Models</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Bookazon.Services\Bookazon.Services.csproj">
-      <Project>{dae14add-c29d-4fb8-8aae-8de5b1847175}</Project>
-      <Name>Bookazon.Services</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202106101441167_InitialCreate.resx">
