@@ -143,6 +143,30 @@ namespace Bookazon.Services
             }
         }
 
+        public IEnumerable<ProductStarRatingRangeItem> GetAllProductsWithinStarRatingRange(double lowestStarRating, double highestStarRating)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Products
+                    .Where(e => e.StarRating >= lowestStarRating && e.StarRating <= highestStarRating)
+                    .Select(
+                        e =>
+                        new ProductStarRatingRangeItem
+                        {
+                            ProductId = e.Id,
+                            Title = e.Title,
+                            Authors = e.Authors.Select(a => a.AuthorId).ToList(),
+                            StarRating = e.StarRating,
+                            Price = e.Price
+                        }
+                        );
+
+                return query.ToArray();
+            }
+        }
+
         public IEnumerable<ProductListItem> GetTitlePartial(string title)
         {
             using (var ctx = new ApplicationDbContext())
