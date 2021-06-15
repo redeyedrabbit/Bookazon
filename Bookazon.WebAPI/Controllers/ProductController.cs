@@ -18,16 +18,12 @@ namespace Bookazon.WebAPI.Controllers
     public class ProductController : ApiController
     {
         /// <summary>
-        /// 
+        /// Get all products.
         /// </summary>
-<<<<<<< HEAD
-        /// <returns></returns>
-=======
         /// <returns>
         /// Returns the product information for each product in the database with the ProductId, Title, AuthorId, and TypeOfGenre.
         /// </returns>
         [ResponseType(typeof(ProductListItem))]
->>>>>>> tluedeke/Documentation
         public IHttpActionResult GetAll()
         {
             ProductService productService = CreateProductService();
@@ -36,13 +32,7 @@ namespace Bookazon.WebAPI.Controllers
         }
 
         /// <summary>
-<<<<<<< HEAD
         /// Get a product by Title.
-        /// <summary>
-        /// 
-=======
-        /// Get a product by partial Title.
->>>>>>> tluedeke/Documentation
         /// </summary>
         /// <param name="title"></param>
         /// <returns>
@@ -129,18 +119,12 @@ namespace Bookazon.WebAPI.Controllers
         /// <param name="product"></param>
         /// <param name="authorFirstName"></param>
         /// <param name="authorLastName"></param>
-<<<<<<< HEAD
-        /// <returns></returns>
-
-        public IHttpActionResult PostWithAuthorship(ProductCreate product, string authorFirstName, string authorLastName)
-
-=======
         /// <returns>
         /// Allows a user to create a new product, and add the Authorship through the joining table, in one step. Before creating the product, be sure to create a Publisher and Author first in their respective tables. If the product is successfully created, returns the message "Product and Authorship successfully created."
         /// </returns>
         [ResponseType(typeof(string))]
         public IHttpActionResult PostWithAuthorship(ProductCreate product, string authorFirstName,  string authorLastName)
->>>>>>> tluedeke/Documentation
+
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -150,7 +134,7 @@ namespace Bookazon.WebAPI.Controllers
             if (!service.CreateProductWithAuthor(product, authorFirstName, authorLastName))
                 return InternalServerError();
 
-            return Ok("Product and Authorship successfully created.");
+            return Ok("Product was added with Author and authorship successfully.");
         }
 
         /// <summary>
