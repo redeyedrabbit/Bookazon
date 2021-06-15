@@ -580,6 +580,73 @@
             Allows a user to delete an existing authorship by that authorship's Id. If successful, returns the message "Authorship successfully deleted."
             </returns>
         </member>
+        <member name="M:Bookazon.WebAPI.Controllers.AuthorshipController.PostAuthorship(Bookazon.Models.Authorship.AuthorshipCreate)">
+            <summary>
+            Create a new authorship and add it to the database. 
+            </summary>
+            <param name="authorship"></param>
+            <returns>
+            Allows a user to link an Author to a Product through a joining table. You will need to create an Author and a Product before you can link them. If successful, returns the message "Authorship successfully added."
+            </returns>
+        </member>
+        <member name="M:Bookazon.WebAPI.Controllers.AuthorshipController.GetProductByAuthor(System.Int32)">
+            <summary>
+            Get all products by AuthorId.
+            </summary>
+            <param name="authorId"></param>
+            <returns>
+            Returns all products linked to the entered AuthorId, returns the Authorship Id, AuthorId, and ProductId.
+            </returns>
+        </member>
+        <member name="T:Bookazon.WebAPI.Controllers.PublisherController">
+            <summary>
+            Controller for Publishers and Publisher Services
+            </summary>
+        </member>
+        <member name="M:Bookazon.WebAPI.Controllers.PublisherController.Post(Bookazon.Models.Publisher.PublisherCreate)">
+            <summary>
+            Create a new publisher and add it to the database.
+            </summary>
+            <param name="publisher"></param>
+            <returns>
+            Allows a user to create a new publisher. To create a new product, an author and publisher must be created first. If the publisher is successfully created, returns the message "Publisher successfully created."
+            </returns>
+        </member>
+        <member name="M:Bookazon.WebAPI.Controllers.PublisherController.Put(Bookazon.Models.Publisher.PublisherUpdate)">
+            <summary>
+            Update an existing publisher.
+            </summary>
+            <param name="publisher"></param>
+            <returns>
+            Allows a user to edit an existing publisher by that publisher's PublisherId. Each field must be confirmed or changed. Be sure follow the fields in the API to ensure you have all fields edited or remain unchanged. If successful, returns the message "Publisher successfully edited."
+            </returns>
+        </member>
+        <member name="M:Bookazon.WebAPI.Controllers.PublisherController.Get">
+            <summary>
+            Get all publishers from the database.
+            </summary>
+            <returns>
+            Returns the publisher information for each publisher in the database with the PublisherId and publisher Name.
+            </returns>
+        </member>
+        <member name="M:Bookazon.WebAPI.Controllers.PublisherController.Get(System.Int32)">
+            <summary>
+            Get publisher by their PublisherId.
+            </summary>
+            <param name="id"></param>
+            <returns>
+            Allows a user to search the databse for a publisher by their PublisherId, and returns the publisher that matches the searched PublisherId if a match is found.
+            </returns>
+        </member>
+        <member name="M:Bookazon.WebAPI.Controllers.PublisherController.Delete(System.Int32)">
+            <summary>
+            Delete publisher by their PublisherId.
+            </summary>
+            <param name="id"></param>
+            <returns>
+            Allows a user to delete an existing publisher by that publisher's PublisherId. If successful, returns the message "Publisher successfully deleted."
+            </returns>
+        </member>
         <member name="T:Bookazon.WebAPI.Controllers.ProductController">
             <summary>
             Controller for Products and Product Services.
