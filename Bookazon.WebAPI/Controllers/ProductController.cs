@@ -1,4 +1,5 @@
-﻿using Bookazon.Models.Product;
+﻿using Bookazon.Data;
+using Bookazon.Models.Product;
 using Bookazon.Services;
 using Microsoft.AspNet.Identity;
 using System;
