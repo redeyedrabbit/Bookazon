@@ -481,5 +481,81 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
+        <member name="T:Bookazon.WebAPI.Controllers.ProductController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Bookazon.WebAPI.Controllers.ProductController.GetAll">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Bookazon.WebAPI.Controllers.ProductController.GetByTitle(System.String)" -->
+        <member name="M:Bookazon.WebAPI.Controllers.ProductController.GetById(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bookazon.WebAPI.Controllers.ProductController.GetByPriceRange(System.Decimal,System.Decimal)">
+            <summary>
+            
+            </summary>
+            <param name="lowPrice"></param>
+            <param name="highPrice"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bookazon.WebAPI.Controllers.ProductController.GetByProductByPublisherId(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="publisherId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bookazon.WebAPI.Controllers.ProductController.Post(Bookazon.Models.Product.ProductCreate)">
+            <summary>
+            
+            </summary>
+            <param name="product"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bookazon.WebAPI.Controllers.ProductController.PostWithAuthorship(Bookazon.Models.Product.ProductCreate,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="product"></param>
+            <param name="authorLastName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bookazon.WebAPI.Controllers.ProductController.Put(Bookazon.Models.Product.ProductEdit)">
+            <summary>
+            
+            </summary>
+            <param name="product"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bookazon.WebAPI.Controllers.ProductController.Delete(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Bookazon.WebAPI.Controllers.ValuesController.Get">
+            <summary>
+            Gets some very important data from the server
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Bookazon.WebAPI.Controllers.ValuesController.Get(System.Int32)">
+            <summary>
+            Looks up data by ID.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

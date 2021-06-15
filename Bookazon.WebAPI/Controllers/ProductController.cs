@@ -137,7 +137,7 @@ namespace Bookazon.WebAPI.Controllers
             if (!service.CreateProductWithAuthor(product, authorFirstName, authorLastName))
                 return InternalServerError();
 
-            return Ok("Product and authorship successfully created.");
+            return Ok("Product was added with Author and authorship successfully.");
         }
 
         /// <summary>
