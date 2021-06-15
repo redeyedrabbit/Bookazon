@@ -64,13 +64,14 @@ namespace Bookazon.Services
             {
                 ctx.Products.Add(entity);
                 bool productWasAdded = ctx.SaveChanges() == 1;
-                var foundAuthorId =
-                    ctx
-                    .Authors
-                    .Single(e => e.LastName == authorFirstName && e.FirstName == authorFirstName);
-
-                if (foundAuthorId != null)
+                bool hasAuthor = ctx.Authors.Any(e => e.LastName == authorLastName && e.FirstName == authorFirstName);
+                if (hasAuthor)
                 {
+                    var foundAuthorId =
+                        ctx
+                        .Authors
+                        .Single(e => e.LastName == authorLastName && e.FirstName == authorFirstName);
+
                     AuthorshipService connecter = new AuthorshipService(_managerId);
                     var findNewProductId = ctx.Products.Single(e => e.Title == model.Title);
                     bool authorshipWasAdded = connecter.ConnectAuthorToBook(findNewProductId.Id, foundAuthorId.AuthorId);
@@ -83,13 +84,13 @@ namespace Bookazon.Services
                     newAuthor.FirstName = authorFirstName;
                     newAuthor.LastName = authorLastName;
                     bool authorWasAdded = authorService.CreateAuthor(newAuthor);
-                    var findNewAuthorId = ctx.Authors.Single(e => e.LastName == authorFirstName && e.FirstName == authorFirstName);
+                    var findNewAuthorId = ctx.Authors.Single(e => e.LastName == authorLastName && e.FirstName == authorFirstName);
                     var findNewProductId = ctx.Products.Single(e => e.Title == model.Title);
                     AuthorshipService connecter = new AuthorshipService(_managerId);
                     bool authorshipWasAdded = connecter.ConnectAuthorToBook(findNewProductId.Id, findNewAuthorId.AuthorId);
                     if (productWasAdded && authorshipWasAdded && authorshipWasAdded) return true;
                 }
-                return false;                
+                return false;
             }
 
 
