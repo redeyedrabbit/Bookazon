@@ -221,6 +221,10 @@
     <Compile Include="Migrations\202106101441167_InitialCreate.Designer.cs">
       <DependentUpon>202106101441167_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202106151401184_BookazonV2.cs" />
+    <Compile Include="Migrations\202106151401184_BookazonV2.Designer.cs">
+      <DependentUpon>202106151401184_BookazonV2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -334,6 +338,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202106101441167_InitialCreate.resx">
       <DependentUpon>202106101441167_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202106151401184_BookazonV2.resx">
+      <DependentUpon>202106151401184_BookazonV2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
