@@ -17,79 +17,11 @@ namespace Bookazon.WebAPI.Controllers
     /// </summary>
     public class ProductController : ApiController
     {
-        /// <summary>
-        /// Get all products.
-        /// </summary>
-        /// <returns>
-        /// Returns the product information for each product in the database with the ProductId, Title, AuthorId, and TypeOfGenre.
-        /// </returns>
-        [ResponseType(typeof(ProductListItem))]
-        public IHttpActionResult GetAll()
+        private ProductService CreateProductService()
         {
-            ProductService productService = CreateProductService();
-            var products = productService.GetAllProducts();
-            return Ok(products);
-        }
-
-        /// <summary>
-        /// Get a product by partial Title.
-        /// </summary>
-        /// <param name="title"></param>
-        /// <returns>
-        /// Allows a user to search via a partial title (string) and each item in the database that matches the criteria will be returned with its ProductId, Title, AuthorId, and TypeOfGenre.
-        /// </returns>
-        [ResponseType(typeof(ProductListItem))]
-        public IHttpActionResult GetByTitle(string title)
-        {
-            ProductService productService = CreateProductService();
-            var product = productService.GetTitlePartial(title);
-            return Ok(product);
-        }
-
-        /// <summary>
-        /// Get a product by its ProductId.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns>
-        /// Allows a user to search for a product via that product's ID, and returns the ProductID, Title, AuthorId, and TypeOfGenre if a match is found.
-        /// </returns>
-        [ResponseType(typeof(ProductListItem))]
-        public IHttpActionResult GetById(int id)
-        {
-            ProductService productService = CreateProductService();
-            var product = productService.GetProductById(id);
-            return Ok(product);
-        }
-
-        /// <summary>
-        /// Get a range of products within a range of prices.
-        /// </summary>
-        /// <param name="lowPrice"></param>
-        /// <param name="highPrice"></param>
-        /// <returns>
-        /// Allows a user to search for products within a price range by setting the low-end and high-end limits. Returns all products that fit the criteria with their ProductId, Title, AuthorId, and TypeOfGenre.
-        /// </returns>
-        [ResponseType(typeof(ProductListItem))]
-        public IHttpActionResult GetByPriceRange(decimal lowPrice, decimal highPrice)
-        {
-            ProductService productService = CreateProductService();
-            var product = productService.GetAllProductsWithinPriceRange(lowPrice, highPrice);
-            return Ok(product);
-        }
-
-        /// <summary>
-        /// Get all products from a publisher by PublisherId.
-        /// </summary>
-        /// <param name="publisherId"></param>
-        /// <returns>
-        /// Allows a user to search for products that are tied to one publisher. Returns all product that fit the criteria with their ProductId, Title, AuthorId, and TypeOfGenre.
-        /// </returns>
-        [ResponseType(typeof(ProductListItem))]
-        public IHttpActionResult GetByProductsByPublisherId(int publisherId)
-        {
-            ProductService productService = CreateProductService();
-            var product = productService.GetProductByPublisherId(publisherId);
-            return Ok(product);
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var productService = new ProductService(userId);
+            return productService;
         }
 
         /// <summary>
@@ -123,7 +55,7 @@ namespace Bookazon.WebAPI.Controllers
         /// Allows a user to create a new product, and add the Authorship through the joining table, in one step. Before creating the product, be sure to create a Publisher and Author first in their respective tables. If the product is successfully created, returns the message "Product and Authorship successfully created."
         /// </returns>
         [ResponseType(typeof(string))]
-        public IHttpActionResult PostWithAuthorship(ProductCreate product, string authorFirstName,  string authorLastName)
+        public IHttpActionResult PostWithAuthorship(ProductCreate product, string authorFirstName, string authorLastName)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -134,6 +66,142 @@ namespace Bookazon.WebAPI.Controllers
                 return InternalServerError();
 
             return Ok("Product was added with Author and authorship successfully.");
+        }
+
+        /// <summary>
+        /// Get all products.
+        /// </summary>
+        /// <returns>
+        /// Returns the product information for each product in the database with the ProductId, Title, AuthorId, StarRating, and TypeOfGenre.
+        /// </returns>
+        [ResponseType(typeof(ProductListItem))]
+        public IHttpActionResult GetAll()
+        {
+            ProductService productService = CreateProductService();
+            var products = productService.GetAllProducts();
+            return Ok(products);
+        }
+
+        /// <summary>
+        /// Get a range of products within a range of prices.
+        /// </summary>
+        /// <param name="lowPrice"></param>
+        /// <param name="highPrice"></param>
+        /// <returns>
+        /// Allows a user to search for products within a price range by setting the low-end and high-end limits. Returns all products that fit the criteria with their ProductId, Title, AuthorId, StarRating, and Price.
+        /// </returns>
+        [ResponseType(typeof(ProductListItem))]
+        public IHttpActionResult GetByPriceRange(decimal lowPrice, decimal highPrice)
+        {
+            ProductService productService = CreateProductService();
+            var product = productService.GetAllProductsWithinPriceRange(lowPrice, highPrice);
+            return Ok(product);
+        }
+
+        /// <summary>
+        /// Get a range of products within a range of star ratings.
+        /// </summary>
+        /// <param name="lowestStarRating"></param>
+        /// <param name="highestStarRating"></param>
+        /// <returns>
+        /// Allows a user to search for products within a star rating range by setting the low-end and high-end limits. Returns all products that fit the criteria with their ProductId, Title, AuthorId, StarRating, and Price.
+        /// </returns>
+        [ResponseType(typeof(ProductListItem))]
+        public IHttpActionResult GetByStarRatingRange(double lowestStarRating, double highestStarRating)
+        {
+            ProductService productService = CreateProductService();
+            var product = productService.GetAllProductsWithinStarRatingRange(lowestStarRating, highestStarRating);
+            return Ok(product);
+        }
+
+        /// <summary>
+        /// Get a product by partial Title.
+        /// </summary>
+        /// <param name="title"></param>
+        /// <returns>
+        /// Allows a user to search via a partial title (string) and each item in the database that matches the criteria will be returned with its ProductId, Title, AuthorId, StarRating and TypeOfGenre.
+        /// </returns>
+        [ResponseType(typeof(ProductListItem))]
+        public IHttpActionResult GetByTitle(string title)
+        {
+            ProductService productService = CreateProductService();
+            var product = productService.GetTitlePartial(title);
+            return Ok(product);
+        }
+
+        /// <summary>
+        /// Get a product by its ProductId.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>
+        /// Allows a user to search for a product via that product's ID, and returns the ProductID, Title, Description, AuthorId, StarRating, TypeOfFormat, TypeOfGenre, TypeOfAudience, PublisherId, PublishYear, Price, and TypeOfCondition if a match is found.
+        /// </returns>
+        [ResponseType(typeof(ProductListItem))]
+        public IHttpActionResult GetById(int id)
+        {
+            ProductService productService = CreateProductService();
+            var product = productService.GetProductById(id);
+            return Ok(product);
+        }
+
+        /// <summary>
+        /// Get all products from a publisher by PublisherId.
+        /// </summary>
+        /// <param name="publisherId"></param>
+        /// <returns>
+        /// Allows a user to search for products that are tied to one publisher. Returns all product that fit the criteria with their ProductId, Title, AuthorId, and StarRating.
+        /// </returns>
+        [ResponseType(typeof(ProductListItem))]
+        public IHttpActionResult GetByProductsByPublisherId(int publisherId)
+        {
+            ProductService productService = CreateProductService();
+            var product = productService.GetProductByPublisherId(publisherId);
+            return Ok(product);
+        }
+
+        /// <summary>
+        /// Get a product by its StarRating.
+        /// </summary>
+        /// <param name="starRating"></param>
+        /// <returns>
+        /// Allows a user to search for a product via that product's star rating, and returns the ProductID, Title, AuthorId, and StarRating if a match is found.
+        /// </returns>
+        [ResponseType(typeof(ProductListItem))]
+        public IHttpActionResult GetProductByStarRating(double starRating)
+        {
+            ProductService productService = CreateProductService();
+            var product = productService.GetProductByStarRating(starRating);
+            return Ok(product);
+        }
+
+        /// <summary>
+        /// Get a product by its TypeOfAudience.
+        /// </summary>
+        /// <param name="audience"></param>
+        /// <returns>
+        /// Allows a user to search for a product via that product's audience, and returns the ProductID, Title, AuthorId, and StarRating if a match is found.
+        /// </returns>
+        [ResponseType(typeof(ProductListItem))]
+        public IHttpActionResult GetProductByAudience(Audience audience)
+        {
+            ProductService productService = CreateProductService();
+            var product = productService.GetProductByAudience(audience);
+            return Ok(product);
+        }
+
+        /// <summary>
+        /// Get a product by its TypeOfGenre.
+        /// </summary>
+        /// <param name="genre"></param>
+        /// <returns>
+        /// Allows a user to search for a product via that product's genre, and returns the ProductID, Title, AuthorId, and StarRating if a match is found.
+        /// </returns>
+        [ResponseType(typeof(ProductListItem))]
+        public IHttpActionResult GetProductByGenre(Genre genre)
+        {
+            ProductService productService = CreateProductService();
+            var product = productService.GetProductByGenre(genre);
+            return Ok(product);
         }
 
         /// <summary>
@@ -157,6 +225,7 @@ namespace Bookazon.WebAPI.Controllers
             return Ok("Product successfully edited.");
         }
 
+
         /// <summary>
         /// Delete an existing product.
         /// </summary>
@@ -175,12 +244,5 @@ namespace Bookazon.WebAPI.Controllers
             return Ok("Product successfully deleted.");
         }
 
-
-        private ProductService CreateProductService()
-        {
-            var userId = Guid.Parse(User.Identity.GetUserId());
-            var productService = new ProductService(userId);
-            return productService;
-        }
     }
 }
