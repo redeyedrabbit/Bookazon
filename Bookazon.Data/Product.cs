@@ -49,5 +49,7 @@ namespace Bookazon.Data
 
         public virtual List<Publisher> Publishers { get; set; }
 
+        [Required]
+        public int Quantity { get; set; }
     }
 }

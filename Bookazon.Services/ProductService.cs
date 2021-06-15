@@ -134,7 +134,7 @@ namespace Bookazon.Services
                             Title = e.Title,
                             Authors = e.Authors.Select(a => a.AuthorId).ToList(),
                             StarRating = e.StarRating,
-                            TypeOfGenre = e.TypeofGenre
+                            Price = e.Price
                         }
                         );
 
@@ -206,7 +206,8 @@ namespace Bookazon.Services
                         {
                             Id = e.Id,
                             Title = e.Title,
-                            Authors = e.Authors.Select(a => a.AuthorId).ToList()
+                            Authors = e.Authors.Select(a => a.AuthorId).ToList(),
+                            StarRating = e.StarRating
                         }
                         );
                 return query.ToArray();
@@ -236,14 +237,37 @@ namespace Bookazon.Services
             }
         }
 
-        public ProductDetail GetProductByAudience(Audience audience)
+        public IEnumerable<ProductListItem> GetProductByAudience(Audience audience)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var query =
                     ctx
                     .Products
-                    .Where(e => e.TypeofAudience == typeOfAudience)
+                    .Where(e => e.TypeofAudience == audience) 
+                    .Select(
+                        e =>
+                        new ProductListItem
+                        {
+                            ProductId = e.Id,
+                            Title = e.Title,
+                            Authors = e.Authors.Select(a => a.AuthorId).ToList(),
+                            StarRating = e.StarRating
+                        }
+                        );
+
+                return query.ToArray();
+            }
+        }
+
+        public IEnumerable<ProductListItem> GetProductByGenre(Genre genre)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Products
+                    .Where(e => e.TypeofGenre == genre)
                     .Select(
                         e =>
                         new ProductListItem

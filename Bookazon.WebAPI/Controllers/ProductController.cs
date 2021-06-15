@@ -73,24 +73,31 @@ namespace Bookazon.WebAPI.Controllers
         /// </summary>
         /// <param name="publisherId"></param>
         /// <returns></returns>
-        public IHttpActionResult GetByProductsByPublisherId(int publisherId)
+        public IHttpActionResult GetByProductByPublisherId(int publisherId)
         {
             ProductService productService = CreateProductService();
             var product = productService.GetProductByPublisherId(publisherId);
             return Ok(product);
         }
 
-        public IHttpActionResult GetByProductsByStarRating(double starRating)
+        public IHttpActionResult GetByProductByStarRating(double starRating)
         {
             ProductService productService = CreateProductService();
             var product = productService.GetProductByStarRating(starRating);
             return Ok(product);
         }
 
-        public IHttpActionResult GetByProductsByAudience(Audience audience)
+        public IHttpActionResult GetByProductByAudience(Audience audience)
         {
             ProductService productService = CreateProductService();
             var product = productService.GetProductByAudience(audience);
+            return Ok(product);
+        }
+
+        public IHttpActionResult GetByProductByGenre(Genre genre)
+        {
+            ProductService productService = CreateProductService();
+            var product = productService.GetProductByGenre(genre);
             return Ok(product);
         }
 
