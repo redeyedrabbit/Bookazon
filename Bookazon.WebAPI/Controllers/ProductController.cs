@@ -32,7 +32,7 @@ namespace Bookazon.WebAPI.Controllers
         }
 
         /// <summary>
-        /// Get a product by Title.
+        /// Get a product by partial Title.
         /// </summary>
         /// <param name="title"></param>
         /// <returns>
@@ -124,7 +124,6 @@ namespace Bookazon.WebAPI.Controllers
         /// </returns>
         [ResponseType(typeof(string))]
         public IHttpActionResult PostWithAuthorship(ProductCreate product, string authorFirstName,  string authorLastName)
-
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
