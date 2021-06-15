@@ -47,11 +47,11 @@ namespace Bookazon.WebAPI.Controllers
         }
 
         /// <summary>
-        /// Get a product by its ID.
+        /// Get a product by its ProductId.
         /// </summary>
         /// <param name="id"></param>
         /// <returns>
-        /// Allows a user to search for a product via that product's ID. Returns the ProductID, Title, AuthorId, and TypeOfGenre.
+        /// Allows a user to search for a product via that product's ID, and returns the ProductID, Title, AuthorId, and TypeOfGenre if a match is found.
         /// </returns>
         [ResponseType(typeof(ProductListItem))]
         public IHttpActionResult GetById(int id)
