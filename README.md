@@ -2,7 +2,6 @@
 > An API that allows a bookstore to manage its product listing database, and allows a bookstore customer to view the inventory based on Title, Author, or Publisher information.
 
 ## Table of Contents
-* [Mission Statement](#mission-statement)
 * [Database](#database)
 * [Features](#features)
 * [Endpoints](#endpoints)
@@ -11,55 +10,81 @@
 * [Acceptance Criteria and Tests](#acceptance-criteria-and-tests)
 * [Sprint Planning](#sprint-planning)
 * [Assigned Tasks](#assigned-tasks)
+* [Stretch Goals](#stretch-goals)
 * [Schedule](#schedule)
 * [Created By](#created-by)
 * [Screenshots](#screenshots)
+* [Instructions](#instructions)
 * [Links](#links)
 
 
-## Mission Statement
-An API that allows a bookstore to manage its product listing database, and allows a bookstore customer to view the inventory based on Title, Author, or Publisher information.
-
 ## Database
-// Insert Database IMG here
+![DB Diagram](https://github.com/redeyedrabbit/Bookazon/blob/develop/img/DBdatabase.PNG)
 
 **Table 1: Product**
+
 	ProductId - int (Primary Key)
+
+	ManagerId - guid
+
 	Title - string
+
 	Description - string
+
+	StarRating - double
+
 	FormatType - enum
+
 	Genre - enum
+
+	Audience - enum
+
 	Author - string (Many-to-Many with Author, using Authorship as a joining table)
+
 	PublisherId - int (ForeignKey)
-	PublishDate - DateTime
+
+	PublishYear - int
+
 	Price - decimal
+
 	Condition - enum
 	
 Group member assigned to this table: **Ben**
 
 **Table 2: Authorship** (Joining table, for the Product and Author tables)
+
 	Id - int (Primary Key)
+
 	ProductId - int (Foreign Key)
+
 	AuthorId - int (Foreign Key)
 
 Group member assigned to this table: **Ben**
 
 **Table 3: Author**
+
 	AuthorId - int (Primary Key)
+
 	FirstName - string
+
 	LastName - string
 
 Group member assigned to this table: **Tad**
 
 **Table 4: Publisher**
+
 	PublisherID - int ((Primary Key)
+
 	Name - string
 
 Group member assigned to this table: **Rachel**
 
 **Table 5: User**
+
 	Id - (Primary Key)
+
 	UserName - string
+
 	IsAdmin - bool
 
 Group member assigned to this table: **Tad**
@@ -88,13 +113,13 @@ Get All Authors |
 
 ## Endpoints
 
-Product - Post a new Product, Get all Product, Get Product by Id, Put existing Product, Delete existing Product
+Product - Post a new Product, Post a new Product with Authorship, Get all Product, Get Product by Id, Get Product by Authorship, Get Product by Title, Get Product by Genre, Get Product by Star Rating, Get Product by Audience, Get Product by Price Range, Get Product by Star Rating Range, Get Product by Author, Get Product by Publisher, Put existing Product, Delete existing Product
 
-Author - Post new Author, GET Author by Id, GET all Authors, PUT existing Author, Delete existing Author
+Author - Post new Author, Get Author by Id, GET all Authors, Get Author by LastName, Get Author by First Name, Get Author by Full Name, Put existing Author, Delete existing Author
 
 Publisher - Post new Publisher, Get Publisher by Id, Get All Publishers, Put existing Publisher, Delete existing Publisher
 
-Authorship - Get Product(s) by Author, Get Author(s) by Product, Post, Delete
+Authorship - Get Product(s) by Author, Get all Authorships, Post new Authorship, Delete existing Authorship
 
 
 ## User Stories
@@ -104,11 +129,11 @@ Authorship - Get Product(s) by Author, Get Author(s) by Product, Post, Delete
 
 3. As a store manager, I want to Delete a product from the database when it is no longer available.
 
-4. edit EDIT
+4. As a customer, I want to see the intended audience of a given product, so that I can ensure a product is for either my children or myself.
 
 5. As a customer, I want to Read/Get products by title for more information such as format, publish date, condition, genre, stock availability, price, rating, etc.
 
-6. As a customer, I want to Create/Post a star rating on a product so that I can share with others how I feel about a given product title. EDIT
+6. As a customer, I want to Create/Post a star rating on a product so that I can share with others how I feel about a given product title. 
 
 7. As a customer, I want to see the star ratings of a given product when I search for a product title, so that I can choose a product based on average ratings.
 
@@ -116,7 +141,7 @@ Authorship - Get Product(s) by Author, Get Author(s) by Product, Post, Delete
 
 9. As a customer, I want to Read/Get products by range of star ratings, so that I can easily choose a product that meets my standards.
 
-10. As a customer, I want to see the intended audience of a given product, so that I can ensure a product is for either my children or myself.
+10. As a store manager, I want to Create/Post genres to the database as needed to accommodate products.
 
 
 ## Tasks and Tickets
@@ -151,29 +176,15 @@ User Story | Acceptance Criteria/Tests
 **User story 2** | Update/Put product without required fields - Get 400 Error
 **User story 2** | Update/Put product that does not exist - Get 404 Error
 **User story 2** | Update/Put product successfully - Get 200 Ok “Product Updated Successfully”
-
 **User story 3** | Delete product that does not exist - Get 404 Error
 **User story 3** | Delete product successfully - Get 200 Ok “Product Deleted Successfully”
-//
-//**User story 4** | Get ratings from a user that doesn’t exist - 400 error “User doesn’t exist”
-//**User story 4** | Get ratings from a valid user id - 200 Ok
-//
 **User story 5** | Read/Get product that does not exist - Get 404 Error
 **User story 5** | Read/Get product by Title successfully - Get 200 Ok
 **User story 6** | Post Star Rating on product that does not exist - Get 404 Error
 **User story 6** | Post Star Rating on product - Get 200 Ok
 **User story 7** | Get/Read Star Rating on product that does not exist - Get 404 Error
 **User story 7** | Get/Read Star Rating on product - Get 200 Ok
-//
-**User story 8** | Post a new rating for a game - 200 ok Posts attached to game
-**User story 8** | Posts a new rating 
-**User story 9** | Search game by title – Should return Game Title with Star Ratings
-**User story 9** | Users did not enter a valid title – Should Return 404 error 
-**User story 10** | Game maturity rating E, T– Return True Is Kid Friendly - 200 Ok
-**User story 10** | Game maturity rating M – Return False Is NOT kid friendly - 200 Ok
-**User story 11** | Search games by specified rating – Return 200 Ok
-**User story 11** | Search games with incorrect int – Return 400 error 
-//
+
 
 ## Sprint Planning
 ### Assigned Tasks:
@@ -194,55 +205,55 @@ User Story | Acceptance Criteria/Tests
 **Ben:** 21, 27, 28
 
 ### Stretch Goals:
-1. User Favorite/Wishlist
+* User Favorite/Wishlist
 
-2. Featured Best Sellers
+* Featured Best Sellers
 
-3. Product Star Rating
+* Product Star Rating
 
-4. Shopping Cart
+* Shopping Cart
 
-5. Checkout
+* Checkout
 
-6. Book Price Range (under $5, $5-$10, $10-$20, $20+)
+* Book Price Range (under $5, $5-$10, $10-$20, $20+)
 
-7. Audience - Adult, Teen, Child
+* Audience - Adult, Teen, Child
 
-8. Inventory Control
+* Inventory Control
 
-9. Purchase Availability
+* Purchase Availability
 
-10. Interface
+* Interface
 
-11. Author Profile (About)
+* Author Profile (About)
 
-12. Book Price Range
+* Book Price Range
 
-13. Create Post with automatic authorship if author exists already
+* Create Post with automatic authorship if author exists already
 
-14. Get Product by Author
+* Get Product by Author
 
-15. Get Product by Publisher
+* Get Product by Publisher
 
-16. Get all Products by Publisher
+* Get all Products by Publisher
 
-17. Get product by Audience
+* Get product by Audience
 
-18. Get Product by Genre
+* Get Product by Genre
 
-19. Get product by Star Rating
+* Get product by Star Rating
 
-20. Star Rating Range (1-3, 3-4, 3+, 3-5)
+* Star Rating Range (1-3, 3-4, 3+, 3-5)
 
-21. Add Sku
+* Add Sku
 
-22. Console App/Program
+* Console App/Program
 
-23. Clone Repo
+* Clone Repo
 
-24. Flowchart 
+* Flowchart 
 
-25. API Documentation 
+* API Documentation 
 
 ## Schedule
 ### Goal Schedule
@@ -252,24 +263,23 @@ Planning Documenation | Establish GitHub Repository, Initial API Scaffolding, an
 **Day 8** | **Day 9** | **Day 10** | **Day 11** |  |  | 
 Testing | ReadME Complete, PostMan Testing Complete. | Stretch Goals | Due |  |  | 
 
-### Reality Schedule
+### Actual Schedule
 Day 1 | Day 2 | Day 3 | Day 4 | Day 5 | Day 6 | Day 7
 -----------| -----------|-----------|-----------|-----------|-----------|-----------|
 Planning Documentation Completed, GitHub Repository Created, Initial API scaffolding, and Branches Created | Product, Author, Publisher Classes and Models completed. Author Services completed. | Product, Author, Publisher Services and Controllers completed. Authorship class, model, service, and controller completed. | Postman testing and troubleshooting code. | Cont. Testing and troubleshooting, taking on backlog/stretch goals | Work independantly | Work Independantly 
 **Day 8** | **Day 9** | **Day 10** | **Day 11** |  |  | 
-Completed stretch goals: Price range, star rating, audience. Some testing and troubleshooting. Started documentation. | Postman Testing, ReadME, Flowchart, Documentation completed, clone testing. Backlog/stretch goals completed: Error handling added to code, Star Rating range added, Create post with automatic authorship if author exists already, Get product by genre, Get product by star rating, Get product by Audience. Console App started | Stretch Goals | Due |  |  | 
+Completed stretch goals: Price range, star rating, audience. Some testing and troubleshooting. Started documentation. | Postman Testing, ReadME, Flowchart, Documentation completed, clone testing. Backlog/stretch goals completed: Error handling added to code, Star Rating range added, Create post with automatic authorship if author exists already, Get product by genre, Get product by star rating, Get product by Audience. Console App started | Final Clone testing, Presentation planning, Completed ReadME, Completed Backlog/Stretch Goal: Display Author Name, Display Publisher Name | Due |  |  | 
 
 ## Screenshots
-![PlanITpoker](0.png)
+![DB Diagram](https://github.com/redeyedrabbit/Bookazon/blob/develop/img/DBdatabase.PNG)
 
-[PlanITPoker](png)
+![PlanITPoker](https://github.com/redeyedrabbit/Bookazon/blob/develop/img/PlanITpoker.png)
 
-![Trello](https://github.com/redeyedrabbit/AgileProject/blob/develop/img/trello.PNG)
+![Trello](https://github.com/redeyedrabbit/Bookazon/blob/develop/img/Trello.PNG)
 
-[Trello Board](png)
 
 ## Comments
-Our team utilized [Google Docs](https://docs.google.com/document/d/1YqDcv0aGMZpOtgycv4oMWGr1yNjSMZVFnThtslkSxrw), Zoom, [PlanITPoker](https://www.planitpoker.com/board/#/room/eee6c51b6bec4287811e1d19a3dcdb0c), and [Trello Board](https://trello.com/b/DodphMPn/agile-project) to collaborate and complete this assignment. 
+Our team utilized [Google Docs](https://docs.google.com/document/d/1y99a8TTk6gH-SR1y_qPijcA5GCSFTuY-hy5GBpv6Cn8), [DB Diagram](https://dbdiagram.io/d/60ca12060c1ff875fcd52069), Zoom, Slack, [PlanITPoker](https://www.planitpoker.com/board/#/room/96840c6892c64465bf72ea7657f8f97f), and [Trello Board](https://trello.com/b/4pg7GnEn/api-project) to collaborate and complete this assignment. 
 
 ## Created By
 - Ben Ellis
@@ -278,9 +288,15 @@ Our team utilized [Google Docs](https://docs.google.com/document/d/1YqDcv0aGMZpO
 
 - Rachel Bellwood
 
+## Instructions
+
+Be sure to mention that a product cannot be created unless an author and publisher are created first.
 
 ## Links
-[PlanITPoker](https://www.planitpoker.com/board/#/room/eee6c51b6bec4287811e1d19a3dcdb0c)
+[DB Diagram](https://dbdiagram.io/d/60ca12060c1ff875fcd52069)
 
-[Trello Board](https://trello.com/b/DodphMPn/agile-project)
+[PlanITPoker](https://www.planitpoker.com/board/#/room/96840c6892c64465bf72ea7657f8f97f)
 
+[Trello Board](https://trello.com/b/4pg7GnEn/api-project)
+
+[Google Docs](https://docs.google.com/document/d/1y99a8TTk6gH-SR1y_qPijcA5GCSFTuY-hy5GBpv6Cn8)

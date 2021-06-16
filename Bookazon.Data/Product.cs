@@ -37,7 +37,9 @@ namespace Bookazon.Data
         public Audience TypeOfAudience { get; set; }
 
         [Required]
+        [ForeignKey(nameof(Publisher))]
         public int PublisherId { get; set; }
+        public virtual Publisher Publisher { get; set; }
 
         public int PublishYear { get; set; }
 
@@ -45,6 +47,7 @@ namespace Bookazon.Data
         [Range(0, double.MaxValue, ErrorMessage = "The price must be greater than 0")]
         public decimal Price { get; set; }
 
+        [Required]
         public Condition TypeOfCondition { get; set; }
 
         public virtual List<Authorship> Authors { get; set; }

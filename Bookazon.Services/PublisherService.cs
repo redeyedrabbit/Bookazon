@@ -32,13 +32,13 @@ namespace Bookazon.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-        
+
         // Update Existing Publisher
         public bool UpdatePublisher(PublisherUpdate model)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                if (ctx.Publishers.Any(e => e.Name == model.Name))
+                if (ctx.Publishers.Any(e => e.Name == model.Name || e.PublisherId != model.PublisherId))
                     return false;
                 var entity = ctx
                     .Publishers.Single(e => e.PublisherId == model.PublisherId && e.ManagerId == _managerId);
@@ -53,7 +53,6 @@ namespace Bookazon.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                // do I need == _manager??
                 var query = ctx
                     .Publishers.Where(e => e.ManagerId == _managerId)
                     .Select(e => new PublisherListItem
@@ -83,7 +82,7 @@ namespace Bookazon.Services
                 };
             }
         }
-                
+
         // Delete Publisher
         public bool DeletePublisher(int publisherId)
         {

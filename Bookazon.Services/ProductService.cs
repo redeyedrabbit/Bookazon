@@ -114,7 +114,7 @@ namespace Bookazon.Services
                         {
                             ProductId = e.Id,
                             Title = e.Title,
-                            Authors = e.Authors.Select(a => a.AuthorId).ToList(),
+                            Authors = e.Authors.Select(a => a.Author.FirstName + " " + a.Author.LastName).ToList(),
                             StarRating = e.StarRating,
                             TypeOfGenre = e.TypeOfGenre
                         }
@@ -138,7 +138,7 @@ namespace Bookazon.Services
                         {
                             ProductId = e.Id,
                             Title = e.Title,
-                            Authors = e.Authors.Select(a => a.AuthorId).ToList(),
+                            Authors = e.Authors.Select(a => a.Author.FirstName + " " + a.Author.LastName).ToList(),
                             StarRating = e.StarRating,
                             Price = e.Price
                         }
@@ -162,7 +162,7 @@ namespace Bookazon.Services
                         {
                             ProductId = e.Id,
                             Title = e.Title,
-                            Authors = e.Authors.Select(a => a.AuthorId).ToList(),
+                            Authors = e.Authors.Select(a => a.Author.FirstName + " " + a.Author.LastName).ToList(),
                             StarRating = e.StarRating,
                             Price = e.Price
                         }
@@ -186,7 +186,7 @@ namespace Bookazon.Services
                         {
                             ProductId = e.Id,
                             Title = e.Title,
-                            Authors = e.Authors.Select(a => a.AuthorId).ToList(),
+                            Authors = e.Authors.Select(a => a.Author.FirstName + " " + a.Author.LastName).ToList(),
                             StarRating = e.StarRating,
                             TypeOfGenre = e.TypeOfGenre
                         }
@@ -212,12 +212,13 @@ namespace Bookazon.Services
                         Id = entity.Id,
                         Title = entity.Title,
                         Description = entity.Description,
-                        Authors = entity.Authors.Select(a => a.AuthorId).ToList(),
+                        Authors = entity.Authors.Select(a => a.Author.FirstName + " " + a.Author.LastName).ToList(),
                         StarRating = entity.StarRating,
                         TypeOfFormat = entity.TypeOfFormat,
                         TypeOfGenre = entity.TypeOfGenre,
                         TypeOfAudience = entity.TypeOfAudience,
                         PublisherId = entity.PublisherId,
+                        Publisher = entity.Publisher.Name,
                         PublishYear = entity.PublishYear,
                         Price = entity.Price,
                         TypeOfCondition = entity.TypeOfCondition
@@ -242,7 +243,7 @@ namespace Bookazon.Services
                         {
                             Id = e.Id,
                             Title = e.Title,
-                            Authors = e.Authors.Select(a => a.AuthorId).ToList(),
+                            Authors = e.Authors.Select(a => a.Author.FirstName + " " + a.Author.LastName).ToList(),
                             StarRating = e.StarRating
                         }
                         );
@@ -267,7 +268,7 @@ namespace Bookazon.Services
                         {
                             ProductId = e.Id,
                             Title = e.Title,
-                            Authors = e.Authors.Select(a => a.AuthorId).ToList(),
+                            Authors = e.Authors.Select(a => a.Author.FirstName + " " + a.Author.LastName).ToList(),
                             StarRating = e.StarRating
                         }
                         );
@@ -293,7 +294,7 @@ namespace Bookazon.Services
                         {
                             ProductId = e.Id,
                             Title = e.Title,
-                            Authors = e.Authors.Select(a => a.AuthorId).ToList(),
+                            Authors = e.Authors.Select(a => a.Author.FirstName + " " + a.Author.LastName).ToList(),
                             StarRating = e.StarRating
                         }
                         );
@@ -319,7 +320,7 @@ namespace Bookazon.Services
                         {
                             ProductId = e.Id,
                             Title = e.Title,
-                            Authors = e.Authors.Select(a => a.AuthorId).ToList(),
+                            Authors = e.Authors.Select(a => a.Author.FirstName + " " + a.Author.LastName).ToList(),
                             StarRating = e.StarRating
                         }
                         );

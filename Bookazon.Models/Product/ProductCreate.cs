@@ -15,6 +15,7 @@ namespace Bookazon.Models.Product
         [MaxLength (80, ErrorMessage = "Please enter a more brief title.")]
         public string Title { get; set; }
 
+        [Required]
         [MinLength(3, ErrorMessage = "The description needs to be longer.")]
         [MaxLength(80, ErrorMessage = "Please enter a more brief description.")]
         public string Description { get; set; }
@@ -37,7 +38,7 @@ namespace Bookazon.Models.Product
         [Required]
         [Range(0, double.MaxValue, ErrorMessage = "The price must be greater than 0")]
         public decimal Price { get; set; }
-
+        [Required]
         public Condition TypeOfCondition { get; set; }
     }
 }
