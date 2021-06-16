@@ -112,7 +112,7 @@ Get All Authors |
 
 ## Endpoints
 
-Product - Post a new Product, Post a new Product with Authorship, Get all Product, Get Product by Id, Get Product by Authorship, Get Product by Title, Get Product by Genre, Get Product by Star Rating, Get Product by Audience, Get Product by Price Range, Get Product by Star Rating Range, Get Poduct by Author, Get Product by Publisher, Put existing Product, Delete existing Product
+Product - Post a new Product, Post a new Product with Authorship, Get all Product, Get Product by Id, Get Product by Authorship, Get Product by Title, Get Product by Genre, Get Product by Star Rating, Get Product by Audience, Get Product by Price Range, Get Product by Star Rating Range, Get Product by Author, Get Product by Publisher, Put existing Product, Delete existing Product
 
 Author - Post new Author, Get Author by Id, GET all Authors, Get Author by LastName, Get Author by First Name, Get Author by Full Name, Put existing Author, Delete existing Author
 
@@ -267,7 +267,7 @@ Day 1 | Day 2 | Day 3 | Day 4 | Day 5 | Day 6 | Day 7
 -----------| -----------|-----------|-----------|-----------|-----------|-----------|
 Planning Documentation Completed, GitHub Repository Created, Initial API scaffolding, and Branches Created | Product, Author, Publisher Classes and Models completed. Author Services completed. | Product, Author, Publisher Services and Controllers completed. Authorship class, model, service, and controller completed. | Postman testing and troubleshooting code. | Cont. Testing and troubleshooting, taking on backlog/stretch goals | Work independantly | Work Independantly 
 **Day 8** | **Day 9** | **Day 10** | **Day 11** |  |  | 
-Completed stretch goals: Price range, star rating, audience. Some testing and troubleshooting. Started documentation. | Postman Testing, ReadME, Flowchart, Documentation completed, clone testing. Backlog/stretch goals completed: Error handling added to code, Star Rating range added, Create post with automatic authorship if author exists already, Get product by genre, Get product by star rating, Get product by Audience. Console App started | Stretch Goals | Due |  |  | 
+Completed stretch goals: Price range, star rating, audience. Some testing and troubleshooting. Started documentation. | Postman Testing, ReadME, Flowchart, Documentation completed, clone testing. Backlog/stretch goals completed: Error handling added to code, Star Rating range added, Create post with automatic authorship if author exists already, Get product by genre, Get product by star rating, Get product by Audience. Console App started | Final Clone testing, Presentation planning, Completed ReadME, Completed Backlog/Stretch Goal: Display Author Name, Display Publisher Name | Due |  |  | 
 
 ## Screenshots
 ![DB Diagram](https://github.com/redeyedrabbit/Bookazon/blob/develop/img/DBdatabase.PNG)
