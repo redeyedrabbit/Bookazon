@@ -23,7 +23,7 @@
 
 **Table 1: Product**
 
-	ProductId - int (Primary Key)
+	ProductId - int (Primary Key) (Many-to-Many with Author, using Authorship as a joining table)
 
 	ManagerId - guid
 
@@ -38,8 +38,6 @@
 	Genre - enum
 
 	Audience - enum
-
-	Author - string (Many-to-Many with Author, using Authorship as a joining table)
 
 	PublisherId - int (ForeignKey)
 
