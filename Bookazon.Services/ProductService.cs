@@ -218,6 +218,7 @@ namespace Bookazon.Services
                         TypeOfGenre = entity.TypeOfGenre,
                         TypeOfAudience = entity.TypeOfAudience,
                         PublisherId = entity.PublisherId,
+                        Publisher = entity.Publisher.Name,
                         PublishYear = entity.PublishYear,
                         Price = entity.Price,
                         TypeOfCondition = entity.TypeOfCondition

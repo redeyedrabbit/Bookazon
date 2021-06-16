@@ -37,7 +37,9 @@ namespace Bookazon.Data
         public Audience TypeOfAudience { get; set; }
 
         [Required]
+        [ForeignKey(nameof(Publisher))]
         public int PublisherId { get; set; }
+        public virtual Publisher Publisher { get; set; }
 
         public int PublishYear { get; set; }
 
