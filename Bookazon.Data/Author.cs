@@ -24,6 +24,5 @@ namespace Bookazon.Data
 
         public virtual IEnumerable<Authorship> BooksAuthored { get; set; }
 
-
     }
 }
