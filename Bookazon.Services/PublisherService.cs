@@ -38,7 +38,7 @@ namespace Bookazon.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                if (ctx.Publishers.Any(e => e.Name == model.Name))
+                if (ctx.Publishers.Any(e => e.Name == model.Name || e.PublisherId != model.PublisherId))
                     return false;
                 var entity = ctx
                     .Publishers.Single(e => e.PublisherId == model.PublisherId && e.ManagerId == _managerId);
