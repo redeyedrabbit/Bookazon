@@ -22,13 +22,16 @@
 
 **Table 1: Product**
 	ProductId - int (Primary Key)
+	ManagerId - guid
 	Title - string
 	Description - string
+	StarRating - double
 	FormatType - enum
 	Genre - enum
+	Audience - enum
 	Author - string (Many-to-Many with Author, using Authorship as a joining table)
 	PublisherId - int (ForeignKey)
-	PublishDate - DateTime
+	PublishYear - int
 	Price - decimal
 	Condition - enum
 	
@@ -85,7 +88,7 @@ Get All Authors |
 
 ## Endpoints
 
-Product - Post a new Product, Get all Product, Get Product by Id, Put existing Product, Delete existing Product
+Product - Post a new Product, Get all Product, Get Product by Id, Get Product by Genre, Get Product by Star Rating, Get Product by Audience, Get Product by Price Range, Get Product by Star Rating Range, Get Poduct by Author, Get Product by Publisher, Put existing Product, Delete existing Product
 
 Author - Post new Author, GET Author by Id, GET all Authors, PUT existing Author, Delete existing Author
 
@@ -105,13 +108,15 @@ Authorship - Get Product(s) by Author, Get Author(s) by Product, Post, Delete
 
 5. As a customer, I want to Read/Get products by title for more information such as format, publish date, condition, genre, stock availability, price, rating, etc.
 
-6. As a customer, I want to Create/Post a star rating on a product so that I can share with others how I feel about a given product title. EDIT
+6. As a customer, I want to Create/Post a star rating on a product so that I can share with others how I feel about a given product title. 
 
 7. As a customer, I want to see the star ratings of a given product when I search for a product title, so that I can choose a product based on average ratings.
 
 8. As a customer, I want to Read/Get products by price range so that I can see products that I am willing to purchase for X amount.
 
 9. As a customer, I want to Read/Get products by range of star ratings, so that I can easily choose a product that meets my standards.
+
+10. As a store manager, I want to Create/Post genres to the database as needed to accommodate products.
 
 
 ## Tasks and Tickets
