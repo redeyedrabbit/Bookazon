@@ -299,4 +299,6 @@ Be sure to mention that a product cannot be created unless an author and publish
 
 [Trello Board](https://trello.com/b/4pg7GnEn/api-project)
 
-[Google Docs](https://docs.google.com/document/d/1y99a8TTk6gH-SR1y_qPijcA5GCSFTuY-hy5GBpv6Cn8)
+[Google Docs - Blue Badge Final: Bookazon](https://docs.google.com/document/d/1y99a8TTk6gH-SR1y_qPijcA5GCSFTuY-hy5GBpv6Cn8)
+
+[Google Docs - App Choise: Bookstore API](https://docs.google.com/document/d/1JbHtGrAHnUyoWCFm1CcsG_sGJmMYKVLAtTqEcIkLYYM)
