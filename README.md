@@ -2,7 +2,6 @@
 > An API that allows a bookstore to manage its product listing database, and allows a bookstore customer to view the inventory based on Title, Author, or Publisher information.
 
 ## Table of Contents
-* [Mission Statement](#mission-statement)
 * [Database](#database)
 * [Features](#features)
 * [Endpoints](#endpoints)
@@ -17,11 +16,8 @@
 * [Links](#links)
 
 
-## Mission Statement
-An API that allows a bookstore to manage its product listing database, and allows a bookstore customer to view the inventory based on Title, Author, or Publisher information.
-
 ## Database
-// Insert Database IMG here
+![DB Diagram](https://github.com/redeyedrabbit/Bookazon/blob/develop/img/DBdatabase.PNG)
 
 **Table 1: Product**
 	ProductId - int (Primary Key)
@@ -104,7 +100,7 @@ Authorship - Get Product(s) by Author, Get Author(s) by Product, Post, Delete
 
 3. As a store manager, I want to Delete a product from the database when it is no longer available.
 
-4. edit EDIT
+4. As a customer, I want to see the intended audience of a given product, so that I can ensure a product is for either my children or myself.
 
 5. As a customer, I want to Read/Get products by title for more information such as format, publish date, condition, genre, stock availability, price, rating, etc.
 
@@ -115,8 +111,6 @@ Authorship - Get Product(s) by Author, Get Author(s) by Product, Post, Delete
 8. As a customer, I want to Read/Get products by price range so that I can see products that I am willing to purchase for X amount.
 
 9. As a customer, I want to Read/Get products by range of star ratings, so that I can easily choose a product that meets my standards.
-
-10. As a customer, I want to see the intended audience of a given product, so that I can ensure a product is for either my children or myself.
 
 
 ## Tasks and Tickets
@@ -151,29 +145,15 @@ User Story | Acceptance Criteria/Tests
 **User story 2** | Update/Put product without required fields - Get 400 Error
 **User story 2** | Update/Put product that does not exist - Get 404 Error
 **User story 2** | Update/Put product successfully - Get 200 Ok “Product Updated Successfully”
-
 **User story 3** | Delete product that does not exist - Get 404 Error
 **User story 3** | Delete product successfully - Get 200 Ok “Product Deleted Successfully”
-//
-//**User story 4** | Get ratings from a user that doesn’t exist - 400 error “User doesn’t exist”
-//**User story 4** | Get ratings from a valid user id - 200 Ok
-//
 **User story 5** | Read/Get product that does not exist - Get 404 Error
 **User story 5** | Read/Get product by Title successfully - Get 200 Ok
 **User story 6** | Post Star Rating on product that does not exist - Get 404 Error
 **User story 6** | Post Star Rating on product - Get 200 Ok
 **User story 7** | Get/Read Star Rating on product that does not exist - Get 404 Error
 **User story 7** | Get/Read Star Rating on product - Get 200 Ok
-//
-**User story 8** | Post a new rating for a game - 200 ok Posts attached to game
-**User story 8** | Posts a new rating 
-**User story 9** | Search game by title – Should return Game Title with Star Ratings
-**User story 9** | Users did not enter a valid title – Should Return 404 error 
-**User story 10** | Game maturity rating E, T– Return True Is Kid Friendly - 200 Ok
-**User story 10** | Game maturity rating M – Return False Is NOT kid friendly - 200 Ok
-**User story 11** | Search games by specified rating – Return 200 Ok
-**User story 11** | Search games with incorrect int – Return 400 error 
-//
+
 
 ## Sprint Planning
 ### Assigned Tasks:
@@ -260,16 +240,15 @@ Planning Documentation Completed, GitHub Repository Created, Initial API scaffol
 Completed stretch goals: Price range, star rating, audience. Some testing and troubleshooting. Started documentation. | Postman Testing, ReadME, Flowchart, Documentation completed, clone testing. Backlog/stretch goals completed: Error handling added to code, Star Rating range added, Create post with automatic authorship if author exists already, Get product by genre, Get product by star rating, Get product by Audience. Console App started | Stretch Goals | Due |  |  | 
 
 ## Screenshots
-![PlanITpoker](0.png)
+![DB Diagram](https://github.com/redeyedrabbit/Bookazon/blob/develop/img/DBdatabase.PNG)
 
-[PlanITPoker](png)
+![PlanITPoker](https://github.com/redeyedrabbit/Bookazon/blob/develop/img/PlanITpoker.png)
 
-![Trello](https://github.com/redeyedrabbit/AgileProject/blob/develop/img/trello.PNG)
+![Trello](https://github.com/redeyedrabbit/Bookazon/blob/develop/img/Trello.PNG)
 
-[Trello Board](png)
 
 ## Comments
-Our team utilized [Google Docs](https://docs.google.com/document/d/1YqDcv0aGMZpOtgycv4oMWGr1yNjSMZVFnThtslkSxrw), Zoom, [PlanITPoker](https://www.planitpoker.com/board/#/room/eee6c51b6bec4287811e1d19a3dcdb0c), and [Trello Board](https://trello.com/b/DodphMPn/agile-project) to collaborate and complete this assignment. 
+Our team utilized [Google Docs](https://docs.google.com/document/d/1y99a8TTk6gH-SR1y_qPijcA5GCSFTuY-hy5GBpv6Cn8), [DB Diagram](https://dbdiagram.io/d/60ca12060c1ff875fcd52069), Zoom, Slack, [PlanITPoker](https://www.planitpoker.com/board/#/room/96840c6892c64465bf72ea7657f8f97f), and [Trello Board](https://trello.com/b/4pg7GnEn/api-project) to collaborate and complete this assignment. 
 
 ## Created By
 - Ben Ellis
@@ -280,7 +259,10 @@ Our team utilized [Google Docs](https://docs.google.com/document/d/1YqDcv0aGMZpO
 
 
 ## Links
-[PlanITPoker](https://www.planitpoker.com/board/#/room/eee6c51b6bec4287811e1d19a3dcdb0c)
+[DB Diagram](https://dbdiagram.io/d/60ca12060c1ff875fcd52069)
 
-[Trello Board](https://trello.com/b/DodphMPn/agile-project)
+[PlanITPoker](https://www.planitpoker.com/board/#/room/96840c6892c64465bf72ea7657f8f97f)
 
+[Trello Board](https://trello.com/b/4pg7GnEn/api-project)
+
+[Google Docs](https://docs.google.com/document/d/1y99a8TTk6gH-SR1y_qPijcA5GCSFTuY-hy5GBpv6Cn8)
