@@ -14,6 +14,7 @@
 * [Schedule](#schedule)
 * [Created By](#created-by)
 * [Screenshots](#screenshots)
+* [Instructions](#instructions)
 * [Links](#links)
 
 
@@ -287,6 +288,9 @@ Our team utilized [Google Docs](https://docs.google.com/document/d/1y99a8TTk6gH-
 
 - Rachel Bellwood
 
+## Instructions
+
+Be sure to mention that a product cannot be created unless an author and publisher are created first.
 
 ## Links
 [DB Diagram](https://dbdiagram.io/d/60ca12060c1ff875fcd52069)
