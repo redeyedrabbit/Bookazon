@@ -10,6 +10,7 @@
 * [Acceptance Criteria and Tests](#acceptance-criteria-and-tests)
 * [Sprint Planning](#sprint-planning)
 * [Assigned Tasks](#assigned-tasks)
+* [Stretch Goals](#stretch-goals)
 * [Schedule](#schedule)
 * [Created By](#created-by)
 * [Screenshots](#screenshots)
@@ -232,7 +233,7 @@ Planning Documenation | Establish GitHub Repository, Initial API Scaffolding, an
 **Day 8** | **Day 9** | **Day 10** | **Day 11** |  |  | 
 Testing | ReadME Complete, PostMan Testing Complete. | Stretch Goals | Due |  |  | 
 
-### Reality Schedule
+### Actual Schedule
 Day 1 | Day 2 | Day 3 | Day 4 | Day 5 | Day 6 | Day 7
 -----------| -----------|-----------|-----------|-----------|-----------|-----------|
 Planning Documentation Completed, GitHub Repository Created, Initial API scaffolding, and Branches Created | Product, Author, Publisher Classes and Models completed. Author Services completed. | Product, Author, Publisher Services and Controllers completed. Authorship class, model, service, and controller completed. | Postman testing and troubleshooting code. | Cont. Testing and troubleshooting, taking on backlog/stretch goals | Work independantly | Work Independantly 
