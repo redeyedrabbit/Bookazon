@@ -19,7 +19,7 @@ namespace Bookazon.Models.Product
         public Genre TypeOfGenre { get; set; }
         public Audience TypeOfAudience { get; set; }
         public int PublisherId { get; set; }
-        public List<int> Publishers { get; set; }
+        public string Publisher { get; set; }
         public int PublishYear { get; set; }
         public decimal Price { get; set; }
         public Condition TypeOfCondition { get; set; }        
