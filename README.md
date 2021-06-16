@@ -21,45 +21,69 @@
 ![DB Diagram](https://github.com/redeyedrabbit/Bookazon/blob/develop/img/DBdatabase.PNG)
 
 **Table 1: Product**
+
 	ProductId - int (Primary Key)
+
 	ManagerId - guid
+
 	Title - string
+
 	Description - string
+
 	StarRating - double
+
 	FormatType - enum
+
 	Genre - enum
+
 	Audience - enum
+
 	Author - string (Many-to-Many with Author, using Authorship as a joining table)
+
 	PublisherId - int (ForeignKey)
+
 	PublishYear - int
+
 	Price - decimal
+
 	Condition - enum
 	
 Group member assigned to this table: **Ben**
 
 **Table 2: Authorship** (Joining table, for the Product and Author tables)
+
 	Id - int (Primary Key)
+
 	ProductId - int (Foreign Key)
+
 	AuthorId - int (Foreign Key)
 
 Group member assigned to this table: **Ben**
 
 **Table 3: Author**
+
 	AuthorId - int (Primary Key)
+
 	FirstName - string
+
 	LastName - string
 
 Group member assigned to this table: **Tad**
 
 **Table 4: Publisher**
+
 	PublisherID - int ((Primary Key)
+
 	Name - string
 
 Group member assigned to this table: **Rachel**
 
 **Table 5: User**
+
 	Id - (Primary Key)
+
 	UserName - string
+
 	IsAdmin - bool
 
 Group member assigned to this table: **Tad**
