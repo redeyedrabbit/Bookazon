@@ -13,7 +13,7 @@ namespace Bookazon.Models.Product
         public int Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }       
-        public List<int> Authors { get; set; }
+        public List<string> Authors { get; set; }
         public double StarRating { get; set; }
         public FormatType TypeOfFormat { get; set; }
         public Genre TypeOfGenre { get; set; }
