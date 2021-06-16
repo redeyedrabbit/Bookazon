@@ -67,6 +67,7 @@
     <Compile Include="Product\ProductEdit.cs" />
     <Compile Include="Product\ProductListItem.cs" />
     <Compile Include="Product\ProductPriceRangeItem.cs" />
+    <Compile Include="Product\ProductStarRatingRangeItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Publisher\PublisherCreate.cs" />
     <Compile Include="Publisher\PublisherDetail.cs" />

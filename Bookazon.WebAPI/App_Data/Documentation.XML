@@ -486,21 +486,21 @@
             Controller for Authors and Author Services
             </summary>
         </member>
+        <member name="M:Bookazon.WebAPI.Controllers.AuthorController.Post(Bookazon.Models.Author.AuthorCreate)">
+            <summary>
+            Create a new author and add them to the database.
+            </summary>
+            <param name="author"></param>
+            <returns>
+            Allows a user to create a new author and save them to the database. If the author is successfully created, returns the message "Author successfully created."
+            </returns>
+        </member>
         <member name="M:Bookazon.WebAPI.Controllers.AuthorController.Get">
             <summary>
             Get all authors in the database.
             </summary>
             <returns>
             Returns the Author information for each author in the database with the AuthorId, FirstName and LastName.
-            </returns>
-        </member>
-        <member name="M:Bookazon.WebAPI.Controllers.AuthorController.GetAuthorsByFirst(System.String)">
-            <summary>
-            Get authors by first name.
-            </summary>
-            <param name="firstName"></param>
-            <returns>
-            Allows a user to search the database for authors by their first name, and returns all authors that match that criteria with their AuthorId, FirstName and LastName.
             </returns>
         </member>
         <member name="M:Bookazon.WebAPI.Controllers.AuthorController.GetAuthorsByLast(System.String)">
@@ -510,6 +510,15 @@
             <param name="lastName"></param>
             <returns>
              Allows a user to search the database for authors by their last name, and returns all authors that match that criteria with their AuthorId, FirstName and LastName.
+            </returns>
+        </member>
+        <member name="M:Bookazon.WebAPI.Controllers.AuthorController.GetAuthorsByFirst(System.String)">
+            <summary>
+            Get authors by first name.
+            </summary>
+            <param name="firstName"></param>
+            <returns>
+            Allows a user to search the database for authors by their first name, and returns all authors that match that criteria with their AuthorId, FirstName and LastName.
             </returns>
         </member>
         <member name="M:Bookazon.WebAPI.Controllers.AuthorController.GetAuthorByFull(System.String,System.String)">
@@ -524,20 +533,11 @@
         </member>
         <member name="M:Bookazon.WebAPI.Controllers.AuthorController.getAuthorById(System.Int32)">
             <summary>
-            Get authors by their AuthorId.
+            Get author by their AuthorId.
             </summary>
             <param name="id"></param>
             <returns>
             Allows a user to search the databse for an author by their AuthorId, and returns the author that matches the searched AuthorId if a match is found.
-            </returns>
-        </member>
-        <member name="M:Bookazon.WebAPI.Controllers.AuthorController.Post(Bookazon.Models.Author.AuthorCreate)">
-            <summary>
-            Create a new author and add them to the database.
-            </summary>
-            <param name="author"></param>
-            <returns>
-            Allows a user to create a new author and save them to the database. If the author is successfully created, returns the message "Author successfully created."
             </returns>
         </member>
         <member name="M:Bookazon.WebAPI.Controllers.AuthorController.Put(Bookazon.Models.Author.AuthorEdit)">
@@ -652,51 +652,6 @@
             Controller for Products and Product Services.
             </summary>
         </member>
-        <member name="M:Bookazon.WebAPI.Controllers.ProductController.GetAll">
-            <summary>
-            Get all products.
-            </summary>
-            <returns>
-            Returns the product information for each product in the database with the ProductId, Title, AuthorId, and TypeOfGenre.
-            </returns>
-        </member>
-        <member name="M:Bookazon.WebAPI.Controllers.ProductController.GetByTitle(System.String)">
-            <summary>
-            Get a product by partial Title.
-            </summary>
-            <param name="title"></param>
-            <returns>
-            Allows a user to search via a partial title (string) and each item in the database that matches the criteria will be returned with its ProductId, Title, AuthorId, and TypeOfGenre.
-            </returns>
-        </member>
-        <member name="M:Bookazon.WebAPI.Controllers.ProductController.GetById(System.Int32)">
-            <summary>
-            Get a product by its ProductId.
-            </summary>
-            <param name="id"></param>
-            <returns>
-            Allows a user to search for a product via that product's ID, and returns the ProductID, Title, AuthorId, and TypeOfGenre if a match is found.
-            </returns>
-        </member>
-        <member name="M:Bookazon.WebAPI.Controllers.ProductController.GetByPriceRange(System.Decimal,System.Decimal)">
-            <summary>
-            Get a range of products within a range of prices.
-            </summary>
-            <param name="lowPrice"></param>
-            <param name="highPrice"></param>
-            <returns>
-            Allows a user to search for products within a price range by setting the low-end and high-end limits. Returns all products that fit the criteria with their ProductId, Title, AuthorId, and TypeOfGenre.
-            </returns>
-        </member>
-        <member name="M:Bookazon.WebAPI.Controllers.ProductController.GetByProductsByPublisherId(System.Int32)">
-            <summary>
-            Get all products from a publisher by PublisherId.
-            </summary>
-            <param name="publisherId"></param>
-            <returns>
-            Allows a user to search for products that are tied to one publisher. Returns all product that fit the criteria with their ProductId, Title, AuthorId, and TypeOfGenre.
-            </returns>
-        </member>
         <member name="M:Bookazon.WebAPI.Controllers.ProductController.Post(Bookazon.Models.Product.ProductCreate)">
             <summary>
             Create a new product and add it to the database.
@@ -717,6 +672,88 @@
             Allows a user to create a new product, and add the Authorship through the joining table, in one step. Before creating the product, be sure to create a Publisher and Author first in their respective tables. If the product is successfully created, returns the message "Product and Authorship successfully created."
             </returns>
         </member>
+        <member name="M:Bookazon.WebAPI.Controllers.ProductController.GetAll">
+            <summary>
+            Get all products.
+            </summary>
+            <returns>
+            Returns the product information for each product in the database with the ProductId, Title, AuthorId, StarRating, and TypeOfGenre.
+            </returns>
+        </member>
+        <member name="M:Bookazon.WebAPI.Controllers.ProductController.GetByPriceRange(System.Decimal,System.Decimal)">
+            <summary>
+            Get a range of products within a range of prices.
+            </summary>
+            <param name="lowPrice"></param>
+            <param name="highPrice"></param>
+            <returns>
+            Allows a user to search for products within a price range by setting the low-end and high-end limits. Returns all products that fit the criteria with their ProductId, Title, AuthorId, StarRating, and Price.
+            </returns>
+        </member>
+        <member name="M:Bookazon.WebAPI.Controllers.ProductController.GetByStarRatingRange(System.Double,System.Double)">
+            <summary>
+            Get a range of products within a range of star ratings.
+            </summary>
+            <param name="lowestStarRating"></param>
+            <param name="highestStarRating"></param>
+            <returns>
+            Allows a user to search for products within a star rating range by setting the low-end and high-end limits. Returns all products that fit the criteria with their ProductId, Title, AuthorId, StarRating, and Price.
+            </returns>
+        </member>
+        <member name="M:Bookazon.WebAPI.Controllers.ProductController.GetByTitle(System.String)">
+            <summary>
+            Get a product by partial Title.
+            </summary>
+            <param name="title"></param>
+            <returns>
+            Allows a user to search via a partial title (string) and each item in the database that matches the criteria will be returned with its ProductId, Title, AuthorId, StarRating and TypeOfGenre.
+            </returns>
+        </member>
+        <member name="M:Bookazon.WebAPI.Controllers.ProductController.GetById(System.Int32)">
+            <summary>
+            Get a product by its ProductId.
+            </summary>
+            <param name="id"></param>
+            <returns>
+            Allows a user to search for a product via that product's ID, and returns the ProductID, Title, Description, AuthorId, StarRating, TypeOfFormat, TypeOfGenre, TypeOfAudience, PublisherId, PublishYear, Price, and TypeOfCondition if a match is found.
+            </returns>
+        </member>
+        <member name="M:Bookazon.WebAPI.Controllers.ProductController.GetByProductsByPublisherId(System.Int32)">
+            <summary>
+            Get all products from a publisher by PublisherId.
+            </summary>
+            <param name="publisherId"></param>
+            <returns>
+            Allows a user to search for products that are tied to one publisher. Returns all product that fit the criteria with their ProductId, Title, AuthorId, and StarRating.
+            </returns>
+        </member>
+        <member name="M:Bookazon.WebAPI.Controllers.ProductController.GetProductByStarRating(System.Double)">
+            <summary>
+            Get a product by its StarRating.
+            </summary>
+            <param name="starRating"></param>
+            <returns>
+            Allows a user to search for a product via that product's star rating, and returns the ProductID, Title, AuthorId, and StarRating if a match is found.
+            </returns>
+        </member>
+        <member name="M:Bookazon.WebAPI.Controllers.ProductController.GetProductByAudience(Bookazon.Data.Audience)">
+            <summary>
+            Get a product by its TypeOfAudience.
+            </summary>
+            <param name="audience"></param>
+            <returns>
+            Allows a user to search for a product via that product's audience, and returns the ProductID, Title, AuthorId, and StarRating if a match is found.
+            </returns>
+        </member>
+        <member name="M:Bookazon.WebAPI.Controllers.ProductController.GetProductByGenre(Bookazon.Data.Genre)">
+            <summary>
+            Get a product by its TypeOfGenre.
+            </summary>
+            <param name="genre"></param>
+            <returns>
+            Allows a user to search for a product via that product's genre, and returns the ProductID, Title, AuthorId, and StarRating if a match is found.
+            </returns>
+        </member>
         <member name="M:Bookazon.WebAPI.Controllers.ProductController.Put(Bookazon.Models.Product.ProductEdit)">
             <summary>
             Edit an existing product.
@@ -734,19 +771,6 @@
             <returns>
             Allows a user to delete an existing product by that product's ProductId. If successful, returns the message "Product successfully deleted."
             </returns>
-        </member>
-        <member name="M:Bookazon.WebAPI.Controllers.ValuesController.Get">
-            <summary>
-            Gets some very important data from the server
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Bookazon.WebAPI.Controllers.ValuesController.Get(System.Int32)">
-            <summary>
-            Looks up data by ID.
-            </summary>
-            <param name="id"></param>
-            <returns></returns>
         </member>
     </members>
 </doc>
