@@ -37,6 +37,7 @@ namespace Bookazon.Models.Product
         [Range(0, double.MaxValue, ErrorMessage = "The price must be greater than 0")]
         public decimal Price { get; set; }
 
+        [Required]
         public Condition TypeOfCondition { get; set; }
 
     }
