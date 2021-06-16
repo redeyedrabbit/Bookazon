@@ -112,13 +112,13 @@ Get All Authors |
 
 ## Endpoints
 
-Product - Post a new Product, Get all Product, Get Product by Id, Get Product by Genre, Get Product by Star Rating, Get Product by Audience, Get Product by Price Range, Get Product by Star Rating Range, Get Poduct by Author, Get Product by Publisher, Put existing Product, Delete existing Product
+Product - Post a new Product, Post a new Product with Authorship, Get all Product, Get Product by Id, Get Product by Authorship, Get Product by Title, Get Product by Genre, Get Product by Star Rating, Get Product by Audience, Get Product by Price Range, Get Product by Star Rating Range, Get Poduct by Author, Get Product by Publisher, Put existing Product, Delete existing Product
 
-Author - Post new Author, GET Author by Id, GET all Authors, PUT existing Author, Delete existing Author
+Author - Post new Author, Get Author by Id, GET all Authors, Get Author by LastName, Get Author by First Name, Get Author by Full Name, Put existing Author, Delete existing Author
 
 Publisher - Post new Publisher, Get Publisher by Id, Get All Publishers, Put existing Publisher, Delete existing Publisher
 
-Authorship - Get Product(s) by Author, Get Author(s) by Product, Post, Delete
+Authorship - Get Product(s) by Author, Get all Authorships, Post new Authorship, Delete existing Authorship
 
 
 ## User Stories
