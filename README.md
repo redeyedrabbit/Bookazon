@@ -204,55 +204,55 @@ User Story | Acceptance Criteria/Tests
 **Ben:** 21, 27, 28
 
 ### Stretch Goals:
-1. User Favorite/Wishlist
+* User Favorite/Wishlist
 
-2. Featured Best Sellers
+* Featured Best Sellers
 
-3. Product Star Rating
+* Product Star Rating
 
-4. Shopping Cart
+* Shopping Cart
 
-5. Checkout
+* Checkout
 
-6. Book Price Range (under $5, $5-$10, $10-$20, $20+)
+* Book Price Range (under $5, $5-$10, $10-$20, $20+)
 
-7. Audience - Adult, Teen, Child
+* Audience - Adult, Teen, Child
 
-8. Inventory Control
+* Inventory Control
 
-9. Purchase Availability
+* Purchase Availability
 
-10. Interface
+* Interface
 
-11. Author Profile (About)
+* Author Profile (About)
 
-12. Book Price Range
+* Book Price Range
 
-13. Create Post with automatic authorship if author exists already
+* Create Post with automatic authorship if author exists already
 
-14. Get Product by Author
+* Get Product by Author
 
-15. Get Product by Publisher
+* Get Product by Publisher
 
-16. Get all Products by Publisher
+* Get all Products by Publisher
 
-17. Get product by Audience
+* Get product by Audience
 
-18. Get Product by Genre
+* Get Product by Genre
 
-19. Get product by Star Rating
+* Get product by Star Rating
 
-20. Star Rating Range (1-3, 3-4, 3+, 3-5)
+* Star Rating Range (1-3, 3-4, 3+, 3-5)
 
-21. Add Sku
+* Add Sku
 
-22. Console App/Program
+* Console App/Program
 
-23. Clone Repo
+* Clone Repo
 
-24. Flowchart 
+* Flowchart 
 
-25. API Documentation 
+* API Documentation 
 
 ## Schedule
 ### Goal Schedule
