@@ -106,7 +106,7 @@ namespace Bookazon.WebAPI.Controllers
         /// Allows a user to search the databse for an author by their AuthorId, and returns the author that matches the searched AuthorId if a match is found.
         /// </returns>
         [ResponseType(typeof(AuthorDetail))]
-        public IHttpActionResult getAuthorById(int id)
+        public IHttpActionResult GetAuthorById(int id)
         {
             AuthorService authorService = CreateAuthorService();
             var author = authorService.GetAuthorById(id);
