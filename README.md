@@ -1,5 +1,5 @@
 # Bookazon App
-> An API that allows a bookstore to manage its product listing database and a customer to view the inventory based on Title, Author, or Publisher information.
+> An API that allows a bookstore to manage its product listing database, and allows a bookstore customer to view the inventory based on Title, Author, or Publisher information.
 
 ## Table of Contents
 * [Database](#database)
@@ -71,7 +71,7 @@ Group member assigned to this table: **Tad**
 
 **Table 4: Publisher**
 
-	PublisherID - int ((Primary Key)
+	PublisherID - int (Primary Key)
 
 	Name - string
 
