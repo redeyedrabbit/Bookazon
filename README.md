@@ -196,7 +196,7 @@ User Story | Acceptance Criteria/Tests
 
 **Backlog / Stretch Goals Completed:**
 
-**Rachel:** 22, 23, 24, 25, 26, 29, 30
+**Rachel:** 22, 23, 24, 25, 26, 29
 
 **Tad:** 20, 31, 32
 
@@ -288,7 +288,7 @@ Our team utilized [Google Docs](https://docs.google.com/document/d/1y99a8TTk6gH-
 
 ## Instructions
 
-Be sure to mention that a product cannot be created unless an author and publisher are created first.
+A product cannot be created unless an author and publisher are created first.
 
 ## Links
 [DB Diagram](https://dbdiagram.io/d/60ca12060c1ff875fcd52069)
