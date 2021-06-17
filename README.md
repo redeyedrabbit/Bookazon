@@ -23,7 +23,7 @@
 
 **Table 1: Product**
 
-	ProductId - int (Primary Key)
+	ProductId - int (Primary Key) (Many-to-Many with Author, using Authorship as a joining table)
 
 	ManagerId - guid
 
@@ -38,8 +38,6 @@
 	Genre - enum
 
 	Audience - enum
-
-	Author - string (Many-to-Many with Author, using Authorship as a joining table)
 
 	PublisherId - int (ForeignKey)
 
@@ -198,7 +196,7 @@ User Story | Acceptance Criteria/Tests
 
 **Backlog / Stretch Goals Completed:**
 
-**Rachel:** 22, 23, 24, 25, 26, 29, 30
+**Rachel:** 22, 23, 24, 25, 26, 29
 
 **Tad:** 20, 31, 32
 
@@ -290,7 +288,7 @@ Our team utilized [Google Docs](https://docs.google.com/document/d/1y99a8TTk6gH-
 
 ## Instructions
 
-Be sure to mention that a product cannot be created unless an author and publisher are created first.
+A product cannot be created unless an author and publisher are created first.
 
 ## Links
 [DB Diagram](https://dbdiagram.io/d/60ca12060c1ff875fcd52069)
@@ -299,4 +297,6 @@ Be sure to mention that a product cannot be created unless an author and publish
 
 [Trello Board](https://trello.com/b/4pg7GnEn/api-project)
 
-[Google Docs](https://docs.google.com/document/d/1y99a8TTk6gH-SR1y_qPijcA5GCSFTuY-hy5GBpv6Cn8)
+[Google Docs - Blue Badge Final: Bookazon](https://docs.google.com/document/d/1y99a8TTk6gH-SR1y_qPijcA5GCSFTuY-hy5GBpv6Cn8)
+
+[Google Docs - App Choise: Bookstore API](https://docs.google.com/document/d/1JbHtGrAHnUyoWCFm1CcsG_sGJmMYKVLAtTqEcIkLYYM)
