@@ -39,22 +39,7 @@ namespace Bookazon.Services
                 return ctx2.SaveChanges() == 1;
             }
         }
-
-        public bool DeleteAuthorship(int authorshipId)
-        {
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx
-                    .Authorships
-                    .Single(e => e.Id == authorshipId && e.ManagerId == _managerId);
-
-                ctx.Authorships.Remove(entity);
-
-                return ctx.SaveChanges() == 1;
-            }
-        }
-
+                
         public IEnumerable<AuthorshipListItem> GetAuthorships()
         {
             using(var ctx = new ApplicationDbContext()) 
@@ -96,5 +81,21 @@ namespace Bookazon.Services
                 return entity.ToArray();
             }
         }
+
+        public bool DeleteAuthorship(int authorshipId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Authorships
+                    .Single(e => e.Id == authorshipId && e.ManagerId == _managerId);
+
+                ctx.Authorships.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+
     }
 }
