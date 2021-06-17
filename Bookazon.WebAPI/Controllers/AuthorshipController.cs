@@ -31,28 +31,6 @@ namespace Bookazon.WebAPI.Controllers
         }
 
         /// <summary>
-        /// Delete an existing authorship.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns>
-        /// Allows a user to delete an existing authorship by that authorship's Id. If successful, returns the message "Authorship successfully deleted."
-        /// </returns>
-        [ResponseType(typeof(string))]
-        public IHttpActionResult DeleteAuthorships(int id)
-        {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
-
-            var service = CreateAuthorshipService();
-
-            if (!service.DeleteAuthorship(id))
-
-                return InternalServerError();
-
-            return Ok("Authorship successfully deleted");
-        }
-
-        /// <summary>
         /// Create a new authorship and add it to the database. 
         /// </summary>
         /// <param name="authorship"></param>
@@ -72,7 +50,7 @@ namespace Bookazon.WebAPI.Controllers
 
             return Ok("Authorship sucessfully added.");
         }
-
+                        
         /// <summary>
         /// Get all products by AuthorId.
         /// </summary>
@@ -97,6 +75,28 @@ namespace Bookazon.WebAPI.Controllers
             var userId = Guid.Parse(User.Identity.GetUserId());
             var authorshipService = new AuthorshipService(userId);
             return authorshipService;
+        }
+
+        /// <summary>
+        /// Delete an existing authorship.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>
+        /// Allows a user to delete an existing authorship by that authorship's Id. If successful, returns the message "Authorship successfully deleted."
+        /// </returns>
+        [ResponseType(typeof(string))]
+        public IHttpActionResult DeleteAuthorships(int id)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateAuthorshipService();
+
+            if (!service.DeleteAuthorship(id))
+
+                return InternalServerError();
+
+            return Ok("Authorship successfully deleted");
         }
 
     }
