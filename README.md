@@ -243,6 +243,10 @@ User Story | Acceptance Criteria/Tests
 
 * Star Rating Range (1-3, 3-4, 3+, 3-5)
 
+*Average Star Rating
+
+*Product Recommended if Star Rating above 3
+
 * Add Sku
 
 * Console App/Program
